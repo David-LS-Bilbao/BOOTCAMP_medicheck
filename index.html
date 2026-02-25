@@ -6,7 +6,7 @@
   <title>Medicheck - Dashboard</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="layout">
   <main class="container" id="main">
     <header class="dash-header">
       <div class="page-header">
@@ -54,17 +54,13 @@
               <td>
                 <div class="cell">
                   <span class="pill">Vitamina D</span>
-                  <button class="btn js-status" type="button" data-state="pendiente" aria-live="polite">
-                    Pendiente
-                  </button>
+                  <span class="btn is-pendiente">Pendiente</span>
                 </div>
               </td>
               <td>
                 <div class="cell">
                   <span class="pill">Omeprazol</span>
-                  <button class="btn js-status" type="button" data-state="tomado" aria-live="polite">
-                    Tomado
-                  </button>
+                  <span class="btn is-tomado">Tomado</span>
                 </div>
               </td>
               <td><div class="cell muted">-</div></td>
@@ -108,22 +104,13 @@
       </div>
     </section>
   </main>
+  <!-- Footer fijo al final en paginas con poco contenido (ver body.layout en CSS). -->
+  <footer class="site-footer">
+    <p class="site-footer__text">
+    Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
+    </p>
+  </footer>
 
-  <script>
-    const nextState = { pendiente: "tomado", tomado: "omitido", omitido: "pendiente" };
-    const labels = { pendiente: "Pendiente", tomado: "Tomado", omitido: "Omitido" };
 
-    document.querySelectorAll(".js-status").forEach((btn) => {
-      const apply = (state) => {
-        btn.dataset.state = state;
-        btn.textContent = labels[state];
-        btn.classList.remove("is-pendiente", "is-tomado", "is-omitido");
-        btn.classList.add(`is-${state}`);
-      };
-
-      apply(btn.dataset.state || "pendiente");
-      btn.addEventListener("click", () => apply(nextState[btn.dataset.state]));
-    });
-  </script>
 </body>
 </html>

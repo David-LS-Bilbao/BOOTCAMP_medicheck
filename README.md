@@ -1,69 +1,57 @@
 # Medicheck
 
-App web (Fundamentos) para **recordar y registrar tomas** de medicamentos o suplementos mediante una **vista semanal** (L–D) con franjas del día.
+Medicheck es un MVP de Fundamentos (Modulo 1) para presentar una interfaz de seguimiento de tratamientos.
 
-> ⚠️ **Aviso importante:** Medicheck **no ofrece consejos médicos** ni sustituye la opinión de profesionales sanitarios. Es una herramienta de **registro y recordatorio**.
+> Aviso: esta app no ofrece consejos medicos ni sustituye a profesionales de salud.
 
----
+## Objetivo del MVP
+1. Gestion visual de tratamientos.
+2. Dashboard semanal (L-D x manana/mediodia/tarde/noche).
+3. Historial visual de tomas.
 
-## 🎯 Problema
-Personas con tratamientos crónicos o puntuales olvidan si han tomado la medicación, cuándo fue la última toma y se les desordena el seguimiento diario.
+## Estado actual
+- Proyecto 100% HTML + CSS.
+- Sin JavaScript funcional (maqueta de presentacion).
+- Navegacion entre paginas con rutas relativas.
+- Footer semantico y alineado al layout en todas las vistas.
 
-## 👤 Público objetivo
-Adultos con medicación recurrente o temporal que necesitan **recordatorio + registro**.
-
----
-
-## ✅ MVP (3 funcionalidades core)
-1. **Gestión de tratamientos (UI)**: añadir/editar medicamento/suplemento con dosis y horarios.
-2. **Dashboard semanal (UI)**: calendario L–D × mañana/mediodía/tarde/noche.
-3. **Registro de tomas (UI)**: marcar “Tomado / Omitido” (estado visual).
-
----
-
-## 🧩 Estructura del proyecto
+## Estructura real del proyecto
+```text
 medicheck/
-index.html
-tratamientos.html
-tratamiento-form.html
-historial.html
-css/
-styles.css
-assets/
+  index.html
+  css/
+    styles.css
+  pages/
+    tratamientos.html
+    tratamiento-form.html
+    history.html
+  images/
+    index1.png
+  docs/
+    informe-mvp-html-css.md
+```
 
+## Como ejecutar
+### Opcion 1
+Abrir `index.html` directamente en el navegador.
 
----
+### Opcion 2 (recomendada)
+Usar Live Server en VS Code sobre `index.html`.
 
-## ▶️ Cómo ejecutar
-### Opción 1: abrir en navegador
-- Abre `index.html` con doble click o:
-  - macOS:
-    - `open index.html`
+## Checklist rapido
+- [x] CSS cargando en todas las paginas.
+- [x] Rutas relativas funcionando (`./` y `../`).
+- [x] Tabla semanal con estructura semantica (`caption`, `thead`, `tbody`, `th scope`).
+- [x] Formulario con `label for` y `fieldset/legend`.
+- [x] Foco visible para navegacion por teclado.
+- [x] Layout responsive (Flex/Grid + media queries + scroll horizontal en tablas).
 
-### Opción 2: Live Server (recomendado)
-1. Instala la extensión **Live Server** en VS Code
-2. Click derecho en `index.html` → **Open with Live Server**
+## Decisiones tecnicas
+- Se usa `<table>` para datos tabulares del calendario e historial.
+- Enfoque mobile-first con breakpoints en CSS.
+- Tamaño tactil minimo de controles: `44px`.
+- Sticky footer con `body.layout` + `main { flex: 1; }`.
 
----
-
-## 🧪 Checklist de verificación
-- [ ] El CSS se carga correctamente (`styles.css`)
-- [ ] El dashboard se ve en desktop y se puede hacer scroll horizontal en móvil
-- [ ] Navegación por teclado: foco visible en botones
-- [ ] Texto legible y botones grandes (tacto)
-
----
-
-## 🚀 Mejoras (Nice-to-have)
-- Toggle **Rejilla / Lista** (mejor para móvil)
-- Modo **alto contraste** y **texto grande**
-- Login + sincronización en la nube
-- Base de datos/API de medicamentos (solo lectura: ficha oficial)
-- FAQ predefinida con enlaces a fuentes oficiales
-
----
-
-## 🧾 Decisiones de diseño (rápidas)
-- Se usa `<table>` para representar una rejilla 2D (días × franjas).
-- Diseño **mobile-first** con scroll horizontal en el calendario.
-- Botones con tamaño táctil mínimo (≈44px) para accesibilidad.
+## Alcance y siguientes pasos
+- Alcance actual: presentacion MVP de UI sin logica de negocio.
+- Siguiente paso: cerrar commit de documentacion y ajustes de maquetacion.
