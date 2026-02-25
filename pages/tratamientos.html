@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicheck - Tratamientos</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="dash-header">
+      <div class="page-header">
+        <h1>Tratamientos</h1>
+        <nav aria-label="Navegacion principal">
+          <ul class="top-nav">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="./tratamientos.html" aria-current="page">Tratamientos</a></li>
+            <li><a href="./tratamiento-form.html">Nuevo tratamiento</a></li>
+            <li><a href="./history.html">Historial</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="actions" aria-label="Acciones de tratamientos">
+      <a class="btn btn-link" href="./tratamiento-form.html">+ Nuevo tratamiento</a>
+      <a class="btn btn-link" href="../index.html">Volver al dashboard</a>
+    </section>
+
+    <section aria-labelledby="listaTratamientos">
+      <h2 id="listaTratamientos">Lista activa</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Vitamina D</h3>
+          <p>Dosis: 1 comprimido (1000 UI)</p>
+          <p>Franja: Manana</p>
+          <p>Dias: L, M, X, J, V</p>
+          <div class="actions">
+            <a class="btn btn-link" href="./tratamiento-form.html">Editar</a>
+            <button class="btn" type="button">Pausar</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Omeprazol</h3>
+          <p>Dosis: 20 mg</p>
+          <p>Franja: Manana</p>
+          <p>Dias: Diario</p>
+          <div class="actions">
+            <a class="btn btn-link" href="./tratamiento-form.html">Editar</a>
+            <button class="btn" type="button">Pausar</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Magnesio</h3>
+          <p>Dosis: 1 capsula</p>
+          <p>Franja: Noche</p>
+          <p>Dias: L, X, V</p>
+          <div class="actions">
+            <a class="btn btn-link" href="./tratamiento-form.html">Editar</a>
+            <button class="btn" type="button">Pausar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

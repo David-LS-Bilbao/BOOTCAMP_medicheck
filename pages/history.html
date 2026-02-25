@@ -1,22 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historial de tratamientos</title>
+    <title>Medicheck - Historial</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header class="dash-header">
-        <h1>Historial</h1>
+    <main class="container">
+      <header class="dash-header">
+        <div class="page-header">
+          <h1>Historial de tomas</h1>
+          <nav aria-label="Navegacion principal">
+            <ul class="top-nav">
+              <li><a href="../index.html">Dashboard</a></li>
+              <li><a href="./tratamientos.html">Tratamientos</a></li>
+              <li><a href="./tratamiento-form.html">Nuevo tratamiento</a></li>
+              <li><a href="./history.html" aria-current="page">Historial</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-    </header>
-
-    <main class="dash-main">
-
-
+      <section class="table-wrap" aria-labelledby="historialTitle">
+        <h2 id="historialTitle" class="sr-only">Tabla de historial</h2>
+        <table class="week-table">
+          <caption class="sr-only">Ultimos registros de tomas</caption>
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Medicamento</th>
+              <th scope="col">Franja</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-02-24</td>
+              <td>Vitamina D</td>
+              <td>Manana</td>
+              <td><span class="badge ok">Tomado</span></td>
+            </tr>
+            <tr>
+              <td>2026-02-24</td>
+              <td>Magnesio</td>
+              <td>Noche</td>
+              <td><span class="badge no">Omitido</span></td>
+            </tr>
+            <tr>
+              <td>2026-02-23</td>
+              <td>Omeprazol</td>
+              <td>Manana</td>
+              <td><span class="badge ok">Tomado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
-    <footer class="dash-footer">    </footer>
-    
 </body>
 </html>

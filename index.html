@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicheck - Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicheck - Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <main class="container" id="main">
+    <header class="dash-header">
+      <div class="page-header">
+        <h1>Medicheck - Semana</h1>
+        <nav aria-label="Navegacion principal">
+          <ul class="top-nav">
+            <li><a href="./index.html" aria-current="page">Dashboard</a></li>
+            <li><a href="./pages/tratamientos.html">Tratamientos</a></li>
+            <li><a href="./pages/tratamiento-form.html">Nuevo tratamiento</a></li>
+            <li><a href="./pages/history.html">Historial</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="disclaimer" role="note">
+        Aviso: Medicheck no sustituye el consejo medico profesional.
+      </p>
+    </header>
 
-    <main class="container" id="main">
-        <header class="dash-header">
-            <h1>Medicheck - Semana</h1>
-            <p class="disclaimer" role="note">
-                * Esta información es solo para fines informativos y no debe ser utilizada como diagnóstico médico. Consulte a un profesional de la salud para obtener asesoramiento personalizado.
-            </p>
-        </header>
+    <section class="actions" aria-label="Acciones rapidas">
+      <a class="btn btn-link" href="./pages/tratamiento-form.html">+ Anadir tratamiento</a>
+      <a class="btn btn-link" href="./pages/history.html">Ver historial</a>
+    </section>
 
-        <section aria-labelledby="weekTitle" class="week">
-            <h2 id="weekTitle">Plan semanal</h2>
+    <section aria-labelledby="weekTitle" class="week">
+      <h2 id="weekTitle">Plan semanal</h2>
 
-            <div class="table-wrap" role="region" aria-label="Calendario semanal de tomas">
-                <table class="week-table">
-                    <caption class="sr-only">Calendario lunes a domingo por franjas del dia</caption>
-
-                   <tr>
+      <div class="table-wrap" role="region" aria-label="Calendario semanal de tomas">
+        <table class="week-table">
+          <caption class="sr-only">Calendario lunes a domingo por franjas del dia</caption>
+          <thead>
+            <tr>
               <th scope="col">Franja</th>
               <th scope="col">L</th>
               <th scope="col">M</th>
@@ -34,62 +48,82 @@
               <th scope="col">D</th>
             </tr>
           </thead>
-
-            <tbody>
-                <tr>
-                    <th scope="row">Mañana</th>
-                    <td>
-                          <div class="cell">
-                            <span class="pill">Vitamina D</span>
-                            <button class="btn" type="button" aria-pressed="false">Tomado</button>
-
-                </td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-            </tr>
-
+          <tbody>
             <tr>
-              <th scope="row">Mediodía</th>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
+              <th scope="row">Manana</th>
+              <td>
+                <div class="cell">
+                  <span class="pill">Vitamina D</span>
+                  <button class="btn js-status" type="button" data-state="pendiente" aria-live="polite">
+                    Pendiente
+                  </button>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Omeprazol</span>
+                  <button class="btn js-status" type="button" data-state="tomado" aria-live="polite">
+                    Tomado
+                  </button>
+                </div>
+              </td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
             </tr>
-
+            <tr>
+              <th scope="row">Mediodia</th>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+            </tr>
             <tr>
               <th scope="row">Tarde</th>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
             </tr>
-
             <tr>
               <th scope="row">Noche</th>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
-              <td><div class="cell muted">—</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
             </tr>
           </tbody>
         </table>
-        </div>                
-        </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    
+  <script>
+    const nextState = { pendiente: "tomado", tomado: "omitido", omitido: "pendiente" };
+    const labels = { pendiente: "Pendiente", tomado: "Tomado", omitido: "Omitido" };
+
+    document.querySelectorAll(".js-status").forEach((btn) => {
+      const apply = (state) => {
+        btn.dataset.state = state;
+        btn.textContent = labels[state];
+        btn.classList.remove("is-pendiente", "is-tomado", "is-omitido");
+        btn.classList.add(`is-${state}`);
+      };
+
+      apply(btn.dataset.state || "pendiente");
+      btn.addEventListener("click", () => apply(nextState[btn.dataset.state]));
+    });
+  </script>
 </body>
 </html>

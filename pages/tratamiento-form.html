@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicheck - Nuevo tratamiento</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="dash-header">
+      <div class="page-header">
+        <h1>Nuevo tratamiento</h1>
+        <nav aria-label="Navegacion principal">
+          <ul class="top-nav">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="./tratamientos.html">Tratamientos</a></li>
+            <li><a href="./tratamiento-form.html" aria-current="page">Nuevo tratamiento</a></li>
+            <li><a href="./history.html">Historial</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <form class="card form-grid" action="#" method="post">
+      <div class="field">
+        <label for="nombre">Medicamento o suplemento</label>
+        <input id="nombre" name="nombre" type="text" required>
+      </div>
+
+      <div class="field">
+        <label for="dosis">Dosis</label>
+        <input id="dosis" name="dosis" type="text" placeholder="Ej: 20 mg" required>
+      </div>
+
+      <div class="field">
+        <label for="franja">Franja horaria</label>
+        <select id="franja" name="franja" required>
+          <option value="">Selecciona una franja</option>
+          <option>Manana</option>
+          <option>Mediodia</option>
+          <option>Tarde</option>
+          <option>Noche</option>
+        </select>
+      </div>
+
+      <fieldset class="field">
+        <legend>Dias de toma</legend>
+        <div class="check-grid">
+          <label><input type="checkbox" name="dias" value="L"> L</label>
+          <label><input type="checkbox" name="dias" value="M"> M</label>
+          <label><input type="checkbox" name="dias" value="X"> X</label>
+          <label><input type="checkbox" name="dias" value="J"> J</label>
+          <label><input type="checkbox" name="dias" value="V"> V</label>
+          <label><input type="checkbox" name="dias" value="S"> S</label>
+          <label><input type="checkbox" name="dias" value="D"> D</label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="inicio">Fecha de inicio</label>
+        <input id="inicio" name="inicio" type="date">
+      </div>
+
+      <div class="field">
+        <label for="fin">Fecha de fin</label>
+        <input id="fin" name="fin" type="date">
+      </div>
+
+      <div class="field full">
+        <label for="notas">Notas</label>
+        <textarea id="notas" name="notas" rows="4" placeholder="Indicaciones adicionales"></textarea>
+      </div>
+
+      <div class="actions full">
+        <button class="btn" type="submit">Guardar tratamiento</button>
+        <a class="btn btn-link" href="./tratamientos.html">Cancelar</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
