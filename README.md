@@ -1,6 +1,6 @@
 # Medicheck
 
-Medicheck es un MVP de Fundamentos (Modulo 1) para presentar una interfaz de seguimiento de tratamientos.
+Medicheck es un MVP para presentar una interfaz de seguimiento de tratamientos.
 
 > Aviso: esta app no ofrece consejos medicos ni sustituye a profesionales de salud.
 
@@ -9,11 +9,9 @@ Medicheck es un MVP de Fundamentos (Modulo 1) para presentar una interfaz de seg
 2. Dashboard semanal (L-D x manana/mediodia/tarde/noche).
 3. Historial visual de tomas.
 
-## Estado actual
+## Tecnologias usadas
 - Proyecto 100% HTML + CSS.
-- Sin JavaScript funcional (maqueta de presentacion).
-- Navegacion entre paginas con rutas relativas.
-- Footer semantico y alineado al layout en todas las vistas.
+
 
 ## Estructura real del proyecto
 ```text

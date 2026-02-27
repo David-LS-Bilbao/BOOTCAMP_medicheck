@@ -1,3 +1,6 @@
+/* =========================
+   Variables de diseno
+========================= */
 :root {
   --max: 1100px;
   --radius: 14px;
@@ -18,6 +21,9 @@
   --pending-soft: #fff6e0;
 }
 
+/* =========================
+   Reset y base global
+========================= */
 * {
   box-sizing: border-box;
 }
@@ -46,12 +52,18 @@ a {
   color: var(--brand);
 }
 
+/* =========================
+   Layout principal
+========================= */
 .container {
   max-width: var(--max);
   margin: 0 auto;
   padding: 16px;
 }
 
+/* =========================
+   Encabezado y navegacion
+========================= */
 .dash-header {
   margin-bottom: 14px;
 }
@@ -108,6 +120,9 @@ a {
   margin: 12px 0 16px;
 }
 
+/* =========================
+   Tabla semanal
+========================= */
 .table-wrap {
   overflow: auto;
   border: var(--line);
@@ -179,6 +194,9 @@ a {
   font-weight: 600;
 }
 
+/* =========================
+   Botones y estados
+========================= */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -223,6 +241,9 @@ a {
   background: var(--no-soft);
 }
 
+/* =========================
+   Tarjetas y contenido
+========================= */
 .card-grid {
   display: grid;
   gap: 12px;
@@ -244,6 +265,9 @@ a {
   margin: 0 0 6px;
 }
 
+/* =========================
+   Formularios
+========================= */
 .form-grid {
   display: grid;
   gap: 12px;
@@ -319,6 +343,9 @@ fieldset.field {
   grid-column: 1 / -1;
 }
 
+/* =========================
+   Footer
+========================= */
 .site-footer{
   /* Alinea el footer con .container: mismo maximo y 16px laterales en movil. */
   width: calc(100% - 32px);
@@ -336,6 +363,9 @@ fieldset.field {
   font-size: 0.95rem;
 }
 
+/* =========================
+   Accesibilidad
+========================= */
 .btn:focus-visible,
 .top-nav a:focus-visible,
 .field input:focus-visible,
@@ -357,6 +387,9 @@ fieldset.field {
   border: 0;
 }
 
+/* =========================
+   Media queries (responsive)
+========================= */
 @media (min-width: 720px) {
   .page-header {
     flex-direction: row;
