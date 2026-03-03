@@ -29,7 +29,6 @@
         <!-- Menu principal de navegacion entre pantallas -->
         <nav aria-label="Navegacion principal">
           <ul class="top-nav">
-            <li><a href="./index.html" aria-current="page">Dashboard</a></li>
             <li><a href="./pages/tratamientos.html">Tratamientos</a></li>
             <li><a href="./pages/tratamiento-form.html">Nuevo tratamiento</a></li>
             <li><a href="./pages/history.html">Historial</a></li>
@@ -43,12 +42,12 @@
       </p>
     </header>
 
-    <!-- Acciones rapidas del dashboard -->
+    <!-- Acciones rapidas del dashboard 
     <section class="actions" aria-label="Acciones rapidas">
       <a class="btn btn-link" href="./pages/tratamiento-form.html">+ Anadir tratamiento</a>
       <a class="btn btn-link" href="./pages/history.html">Ver historial</a>
     </section>
-
+-->
     <!--
       VISTA MOVIL:
       Esta seccion se ve por defecto (mobile-first) y muestra una tabla corta de "hoy".
@@ -85,11 +84,11 @@
               <td><span class="badge pending">Pendiente</span></td>
             </tr>
 
-            <!-- Fila 3: franja sin medicacion registrada -->
+            <!-- Fila 3: franja de tarde completada -->
             <tr>
               <th scope="row">Tarde</th>
-              <td>—</td>
-              <td>—</td>
+              <td>Paracetamol</td>
+              <td><span class="badge ok">Tomado</span></td>
             </tr>
 
             <!-- Fila 4: ejemplo de toma omitida -->
@@ -139,7 +138,7 @@
               <td>
                 <div class="cell">
                   <span class="pill">Vitamina D</span>
-                  <span class="btn is-pendiente">Pendiente</span>
+                  <span class="btn is-tomado">Tomado</span>
                 </div>
               </td>
 
@@ -151,45 +150,174 @@
                 </div>
               </td>
 
-              <!-- Resto de dias sin registro -->
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Losartan 50 mg</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Atorvastatina 20 mg</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Levotiroxina 75 mcg</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Hierro</span>
+                  <span class="btn is-omitido">Omitido</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Calcio + D3</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
             </tr>
 
             <tr>
               <th scope="row">Mediodia</th>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Metformina 850 mg</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Ibuprofeno 400 mg</span>
+                  <span class="btn is-omitido">Omitido</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Probio Plus</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Aspirina 100 mg</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Complejo B</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Omega 3</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Vitamina C 1 g</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
             </tr>
 
             <tr>
               <th scope="row">Tarde</th>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Cetirizina 10 mg</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Colageno</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Melatonina 2 mg</span>
+                  <span class="btn is-omitido">Omitido</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Zinc 25 mg</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Calcio</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Vitamina K2</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Acido folico</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
             </tr>
 
             <tr>
               <th scope="row">Noche</th>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
-              <td><div class="cell muted">-</div></td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Magnesio</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Simvastatina 20 mg</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Dormicalm</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Melatonina 5 mg</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Probiotico nocturno</span>
+                  <span class="btn is-omitido">Omitido</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Coenzima Q10</span>
+                  <span class="btn is-tomado">Tomado</span>
+                </div>
+              </td>
+              <td>
+                <div class="cell">
+                  <span class="pill">Valeriana</span>
+                  <span class="btn is-pendiente">Pendiente</span>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
