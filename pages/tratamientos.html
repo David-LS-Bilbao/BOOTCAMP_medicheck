@@ -2,15 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Viewport para que responda bien en movil -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Medicheck - Tratamientos</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="layout">
+  <!--
+    class="layout" aplica el sticky footer global.
+    Asi no queda flotando en medio en paginas cortas.
+  -->
+
   <main class="container">
+    <!-- Header interno de esta pantalla -->
     <header class="dash-header">
       <div class="page-header">
         <h1>Tratamientos</h1>
+
+        <!-- Navegacion principal compartida -->
         <nav aria-label="Navegacion principal">
           <ul class="top-nav">
             <li><a href="../index.html">Dashboard</a></li>
@@ -22,41 +33,52 @@
       </div>
     </header>
 
+    <!-- Botones de acceso rapido -->
     <section class="actions" aria-label="Acciones de tratamientos">
       <a class="btn btn-link" href="./tratamiento-form.html">+ Nuevo tratamiento</a>
       <a class="btn btn-link" href="../index.html">Volver al dashboard</a>
     </section>
 
+    <!-- Lista de tarjetas de tratamientos activos -->
     <section aria-labelledby="listaTratamientos">
       <h2 id="listaTratamientos">Lista activa</h2>
+
+      <!-- Grid responsive de cards -->
       <div class="card-grid">
+        <!-- Card 1 -->
         <article class="card">
           <h3>Vitamina D</h3>
           <p>Dosis: 1 comprimido (1000 UI)</p>
           <p>Franja: Manana</p>
           <p>Dias: L, M, X, J, V</p>
+
           <div class="actions">
             <a class="btn btn-link" href="./tratamiento-form.html">Editar</a>
+            <!-- disabled porque en este MVP no hay logica real -->
             <button class="btn" type="button" disabled>Pausar</button>
           </div>
         </article>
 
+        <!-- Card 2 -->
         <article class="card">
           <h3>Omeprazol</h3>
           <p>Dosis: 20 mg</p>
           <p>Franja: Manana</p>
           <p>Dias: Diario</p>
+
           <div class="actions">
             <a class="btn btn-link" href="./tratamiento-form.html">Editar</a>
             <button class="btn" type="button">Pausar</button>
           </div>
         </article>
 
+        <!-- Card 3 -->
         <article class="card">
           <h3>Magnesio</h3>
           <p>Dosis: 1 capsula</p>
           <p>Franja: Noche</p>
           <p>Dias: L, X, V</p>
+
           <div class="actions">
             <a class="btn btn-link" href="./tratamiento-form.html">Editar</a>
             <button class="btn" type="button">Pausar</button>
@@ -65,10 +87,11 @@
       </div>
     </section>
   </main>
-  <!-- Footer fijo al final en paginas con poco contenido (ver body.layout en CSS). -->
+
+  <!-- Footer comun -->
   <footer class="site-footer">
     <p class="site-footer__text">
-    Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
+      Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
     </p>
   </footer>
 </body>

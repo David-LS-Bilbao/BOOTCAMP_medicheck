@@ -2,15 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Hace que el diseno responsive funcione correctamente en movil -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titulo de la pestana del navegador -->
   <title>Medicheck - Dashboard</title>
+
+  <!-- Hoja de estilos principal del proyecto -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="layout">
+  <!--
+    class="layout" activa el comportamiento de sticky footer definido en CSS:
+    body en columna + main creciendo para empujar el footer abajo.
+  -->
+
+  <!-- Contenido principal de la pagina -->
   <main class="container" id="main">
+    <!-- Encabezado del dashboard -->
     <header class="dash-header">
       <div class="page-header">
+        <!-- Titulo principal de la vista -->
         <h1>Medicheck - Semana</h1>
+
+        <!-- Menu principal de navegacion entre pantallas -->
         <nav aria-label="Navegacion principal">
           <ul class="top-nav">
             <li><a href="./index.html" aria-current="page">Dashboard</a></li>
@@ -20,24 +36,88 @@
           </ul>
         </nav>
       </div>
+
+      <!-- Aviso legal / informativo del producto -->
       <p class="disclaimer" role="note">
         Aviso: Medicheck no sustituye el consejo medico profesional.
       </p>
     </header>
 
+    <!-- Acciones rapidas del dashboard -->
     <section class="actions" aria-label="Acciones rapidas">
       <a class="btn btn-link" href="./pages/tratamiento-form.html">+ Anadir tratamiento</a>
       <a class="btn btn-link" href="./pages/history.html">Ver historial</a>
     </section>
 
-    <section aria-labelledby="weekTitle" class="week">
+    <!--
+      VISTA MOVIL:
+      Esta seccion se ve por defecto (mobile-first) y muestra una tabla corta de "hoy".
+    -->
+    <section aria-labelledby="todayTitle" class="week only-mobile">
+      <h2 id="todayTitle">Plan de hoy</h2>
+
+      <!-- Contenedor visual de tabla en movil -->
+      <div class="table-wrap today-wrap" role="region" aria-label="Tabla de tomas de hoy">
+        <table class="today-table">
+          <!-- Caption para accesibilidad (oculto visualmente con sr-only) -->
+          <caption class="sr-only">Tomas programadas para hoy por franja</caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Franja</th>
+              <th scope="col">Medicamento</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- Fila 1: ejemplo de toma completada -->
+            <tr>
+              <th scope="row">Manana</th>
+              <td>Vitamina D</td>
+              <td><span class="badge ok">Tomado</span></td>
+            </tr>
+
+            <!-- Fila 2: ejemplo de toma pendiente -->
+            <tr>
+              <th scope="row">Mediodia</th>
+              <td>Omeprazol</td>
+              <td><span class="badge pending">Pendiente</span></td>
+            </tr>
+
+            <!-- Fila 3: franja sin medicacion registrada -->
+            <tr>
+              <th scope="row">Tarde</th>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+
+            <!-- Fila 4: ejemplo de toma omitida -->
+            <tr>
+              <th scope="row">Noche</th>
+              <td>Magnesio</td>
+              <td><span class="badge no">Omitido</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!--
+      VISTA DESKTOP/TABLET:
+      Esta seccion se muestra desde 720px y conserva la tabla semanal completa.
+    -->
+    <section aria-labelledby="weekTitle" class="week only-desktop">
       <h2 id="weekTitle">Plan semanal</h2>
 
-<!--    calendario semanal de tomas-->      
-
+      <!--
+        tabindex="0" permite enfocar el contenedor con teclado,
+        util cuando hay scroll horizontal en tablas grandes.
+      -->
       <div class="table-wrap" role="region" aria-label="Calendario semanal de tomas" tabindex="0">
         <table class="week-table">
           <caption class="sr-only">Calendario lunes a domingo por franjas del dia</caption>
+
           <thead>
             <tr>
               <th scope="col">Franja</th>
@@ -50,27 +130,35 @@
               <th scope="col">D</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <th scope="row">Manana</th>
+
+              <!-- Lunes -->
               <td>
                 <div class="cell">
                   <span class="pill">Vitamina D</span>
                   <span class="btn is-pendiente">Pendiente</span>
                 </div>
               </td>
+
+              <!-- Martes -->
               <td>
                 <div class="cell">
                   <span class="pill">Omeprazol</span>
                   <span class="btn is-tomado">Tomado</span>
                 </div>
               </td>
+
+              <!-- Resto de dias sin registro -->
               <td><div class="cell muted">-</div></td>
               <td><div class="cell muted">-</div></td>
               <td><div class="cell muted">-</div></td>
               <td><div class="cell muted">-</div></td>
               <td><div class="cell muted">-</div></td>
             </tr>
+
             <tr>
               <th scope="row">Mediodia</th>
               <td><div class="cell muted">-</div></td>
@@ -81,6 +169,7 @@
               <td><div class="cell muted">-</div></td>
               <td><div class="cell muted">-</div></td>
             </tr>
+
             <tr>
               <th scope="row">Tarde</th>
               <td><div class="cell muted">-</div></td>
@@ -91,6 +180,7 @@
               <td><div class="cell muted">-</div></td>
               <td><div class="cell muted">-</div></td>
             </tr>
+
             <tr>
               <th scope="row">Noche</th>
               <td><div class="cell muted">-</div></td>
@@ -106,13 +196,12 @@
       </div>
     </section>
   </main>
-  <!-- Footer fijo al final en paginas con poco contenido (ver body.layout en CSS). -->
+
+  <!-- Footer global de la app -->
   <footer class="site-footer">
     <p class="site-footer__text">
-    Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
+      Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
     </p>
   </footer>
-
-
 </body>
 </html>

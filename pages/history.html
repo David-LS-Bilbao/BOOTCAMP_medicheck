@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titulo de la pestana -->
     <title>Medicheck - Historial</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="layout">
+
+
     <main class="container">
+      <!-- Cabecera de pagina + menu -->
       <header class="dash-header">
         <div class="page-header">
           <h1>Historial de tomas</h1>
+
           <nav aria-label="Navegacion principal">
             <ul class="top-nav">
               <li><a href="../index.html">Dashboard</a></li>
               <li><a href="./tratamientos.html">Tratamientos</a></li>
               <li><a href="./tratamiento-form.html">Nuevo tratamiento</a></li>
+              <!-- Marcamos historial como pagina activa -->
               <li><a href="./history.html" aria-current="page">Historial</a></li>
             </ul>
           </nav>
         </div>
       </header>
 
+      <!--
+        Version movil del historial:
+        tabla compacta (3 columnas) para evitar saturacion en pantallas pequenas.
+      -->
       <section class="week only-mobile" aria-labelledby="historialMovilTitle">
         <h2 id="historialMovilTitle">Historial reciente</h2>
+
         <div class="table-wrap compact-wrap" role="region" aria-label="Historial reciente en movil">
           <table class="compact-table">
             <caption class="sr-only">Historial reciente compacto</caption>
+
             <thead>
               <tr>
                 <th scope="col">Fecha</th>
@@ -34,6 +47,7 @@
                 <th scope="col">Estado</th>
               </tr>
             </thead>
+
             <tbody>
               <tr>
                 <th scope="row">2026-02-24</th>
@@ -55,11 +69,18 @@
         </div>
       </section>
 
+      <!--
+        Version desktop/tablet del historial:
+        tabla completa con columna de franja.
+      -->
       <section class="week only-desktop" aria-labelledby="historialTitle">
         <h2 id="historialTitle" class="sr-only">Tabla de historial</h2>
+
+        <!-- tabindex para poder enfocar y usar teclado si hay scroll horizontal -->
         <div class="table-wrap" role="region" aria-label="Tabla completa de historial" tabindex="0">
           <table class="week-table">
             <caption class="sr-only">Ultimos registros de tomas</caption>
+
             <thead>
               <tr>
                 <th scope="col">Fecha</th>
@@ -68,6 +89,7 @@
                 <th scope="col">Estado</th>
               </tr>
             </thead>
+
             <tbody>
               <tr>
                 <td>2026-02-24</td>
@@ -92,11 +114,12 @@
         </div>
       </section>
     </main>
-    <!-- Footer fijo al final en paginas con poco contenido (ver body.layout en CSS). -->
+
+    <!-- Footer de toda la pagina -->
     <footer class="site-footer">
-    <p class="site-footer__text">
-    Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
-    </p>
-  </footer>
+      <p class="site-footer__text">
+        Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
+      </p>
+    </footer>
 </body>
 </html>

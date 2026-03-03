@@ -1,33 +1,50 @@
-/* =========================
-   Variables de diseno
-========================= */
+
+
+/*
+  Variables globales:
+  Aqui centralizamos colores, radios, paddings y medidas.
+  Ventaja: si cambiamos un valor, se actualiza en toda la app.
+*/
 :root {
-  --max: 1100px;
-  --radius: 14px;
-  --pad: 12px;
-  --tap: 44px;
-  --line: 1px solid #d2d8e2;
-  --bg: #f4f7fb;
-  --surface: #ffffff;
-  --text: #1b1f29;
-  --muted: #657083;
-  --brand: #1746a2;
-  --brand-soft: #e9f0ff;
-  --ok: #0a7a3e;
+  --max: 1100px;                     /* ancho maximo del contenido principal */
+  --radius: 14px;                    /* radio estandar para tarjetas/tablas */
+  --pad: 12px;                       /* padding base para celdas */
+  --tap: 44px;                       /* alto minimo tactil recomendado */
+  --line: 1px solid #d2d8e2;         /* borde suave reutilizable */
+
+  --bg: #f4f7fb;                     /* fondo global */
+  --surface: #ffffff;                /* tarjetas, tablas, botones */
+  --text: #1b1f29;                   /* texto principal */
+  --muted: #657083;                  /* texto secundario */
+
+  --brand: #1746a2;                  /* color principal */
+  --brand-soft: #e9f0ff;             /* fondo suave del color principal */
+
+  --ok: #0a7a3e;                     /* estado "tomado" */
   --ok-soft: #e8f9ef;
-  --no: #b42318;
+
+  --no: #b42318;                     /* estado "omitido" */
   --no-soft: #ffefef;
-  --pending: #9a6700;
+
+  --pending: #9a6700;                /* estado "pendiente" */
   --pending-soft: #fff6e0;
 }
 
-/* =========================
-   Reset y base global
-========================= */
+/*
+  Reset minimo:
+  border-box hace que width/height incluyan padding y borde.
+  Esto simplifica mucho el layout responsive.
+*/
 * {
   box-sizing: border-box;
 }
 
+/*
+  Estilo base del body:
+  - quitamos margenes por defecto
+  - fuente legible
+  - fondo con gradiente suave
+*/
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -36,42 +53,59 @@ body {
   background: radial-gradient(circle at top right, #ebf3ff 0%, var(--bg) 60%);
 }
 
-/* Activa sticky footer: body en columna y main ocupando el espacio libre. */
-body.layout{
+/*
+  Layout para sticky footer:
+  Si el body tiene class="layout", se convierte en columna.
+  Luego main crece y empuja el footer al final de la pantalla.
+*/
+body.layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* En paginas cortas, hace que el footer quede al final del viewport. */
-body.layout main{
+/* main ocupa espacio libre para "pegar" el footer abajo */
+body.layout main {
   flex: 1;
 }
 
+/* color base de links */
 a {
   color: var(--brand);
 }
 
-/* =========================
-   Layout principal
-========================= */
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+/*
+  Contenedor reutilizable:
+  centra el contenido y evita que crezca demasiado en desktop.
+*/
 .container {
   max-width: var(--max);
   margin: 0 auto;
   padding: 16px;
 }
 
-/* =========================
-   Encabezado y navegacion
-========================= */
+/* =====================================================
+   HEADER Y NAVEGACION
+===================================================== */
+
+/* separacion inferior del header */
 .dash-header {
   margin-bottom: 14px;
 }
 
+/* quitamos margen por defecto del h1 */
 .dash-header h1 {
   margin: 0;
 }
 
+/*
+  En movil el header se apila.
+  En desktop luego lo pasamos a fila con media query.
+*/
 .page-header {
   display: flex;
   flex-direction: column;
@@ -79,6 +113,7 @@ a {
   margin-bottom: 6px;
 }
 
+/* lista horizontal del menu */
 .top-nav {
   display: flex;
   flex-wrap: wrap;
@@ -88,6 +123,7 @@ a {
   padding: 0;
 }
 
+/* estilo de cada link del menu */
 .top-nav a {
   display: inline-flex;
   align-items: center;
@@ -101,18 +137,21 @@ a {
   color: var(--text);
 }
 
+/* estilo del item de menu activo */
 .top-nav a[aria-current="page"] {
   border-color: var(--brand);
   background: var(--brand-soft);
   color: #0f2d6a;
 }
 
+/* texto secundario del aviso medico */
 .disclaimer {
   margin: 0;
   font-size: 0.95rem;
   color: var(--muted);
 }
 
+/* fila de acciones con wrap para movil */
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -120,30 +159,55 @@ a {
   margin: 12px 0 16px;
 }
 
-/* Mobile-first: dashboard de hoy en movil y semanal en desktop/tablet. */
+/* =====================================================
+   VISIBILIDAD RESPONSIVE (MOBILE-FIRST)
+===================================================== */
+
+/*
+  Por defecto mostramos contenido de movil.
+  Ejemplo: tabla "hoy" compacta.
+*/
 .only-mobile {
   display: block;
 }
 
+/*
+  Por defecto ocultamos contenido de desktop.
+  Ejemplo: tabla semanal completa.
+*/
 .only-desktop {
   display: none;
 }
 
-/* =========================
-   Tabla semanal
-========================= */
+/* =====================================================
+   TABLAS (WRAPPER GENERAL)
+===================================================== */
+
+/*
+  Wrapper comun para tablas:
+  - permite scroll horizontal cuando haga falta
+  - mantiene bordes y fondo tipo card
+*/
 .table-wrap {
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;      /* evita "arrastre" raro del viewport */
+  -webkit-overflow-scrolling: touch;   /* mejora sensacion de scroll en iOS */
 
   border: var(--line);
   border-radius: var(--radius);
   background: var(--surface);
 }
 
+/* =====================================================
+   TABLA SEMANAL (DESKTOP/TABLET)
+===================================================== */
+
+/*
+  Tabla grande con min-width para conservar estructura L-D.
+  En movil no se muestra porque usamos la tabla compacta.
+*/
 .week-table {
   width: 100%;
   border-collapse: separate;
@@ -151,6 +215,7 @@ a {
   min-width: 820px;
 }
 
+/* celdas base de la tabla semanal */
 .week-table th,
 .week-table td {
   border-bottom: var(--line);
@@ -160,26 +225,34 @@ a {
   background: var(--surface);
 }
 
-/* Por defecto (movil) sin sticky para evitar bugs de iOS Safari con overflow. */
+/*
+  Header de la tabla semanal:
+  en base no ponemos sticky (pensado para compatibilidad movil).
+  El sticky se activa luego desde 720px en media query.
+*/
 .week-table thead th {
   background: #a7adb6;
 }
 
+/* primera columna (franja) */
 .week-table th:first-child {
   min-width: 130px;
   background: #f2f5fa;
 }
 
+/* limpiamos borde derecho en ultima columna */
 .week-table td:last-child,
 .week-table th:last-child {
   border-right: none;
 }
 
+/* limpiamos borde inferior en ultima fila */
 .week-table tr:last-child td,
 .week-table tr:last-child th {
   border-bottom: none;
 }
 
+/* contenido interno de celda (pill + estado) */
 .cell {
   display: flex;
   flex-direction: column;
@@ -187,12 +260,14 @@ a {
   min-height: 92px;
 }
 
+/* celda vacia/atenuada */
 .cell.muted {
   justify-content: center;
   text-align: center;
   color: var(--muted);
 }
 
+/* etiqueta tipo "pill" para medicamento */
 .pill {
   display: inline-block;
   width: fit-content;
@@ -203,21 +278,28 @@ a {
   font-weight: 600;
 }
 
-/* Tablas compactas para movil (sin scroll horizontal). */
+/* =====================================================
+   TABLAS COMPACTAS (MOVIL)
+   Se usan en dashboard (today-table) e historial (compact-table)
+===================================================== */
+
+/* en compactas ocultamos scroll horizontal intencionalmente */
 .today-wrap,
 .compact-wrap {
   overflow-x: hidden;
 }
 
+/* estructura base de tabla compacta */
 .today-table,
 .compact-table {
   width: 100%;
   min-width: 0;
   border-collapse: separate;
   border-spacing: 0;
-  table-layout: fixed;
+  table-layout: fixed; /* reparte columnas y evita desbordes raros */
 }
 
+/* celdas en tablas compactas */
 .today-table th,
 .today-table td,
 .compact-table th,
@@ -227,20 +309,23 @@ a {
   padding: 10px;
   background: var(--surface);
   vertical-align: middle;
-  overflow-wrap: anywhere;
+  overflow-wrap: anywhere; /* fuerza corte si texto es largo */
 }
 
+/* color de cabecera en tablas compactas */
 .today-table thead th,
 .compact-table thead th {
   background: #f2f5fa;
 }
 
+/* primera columna de compactas */
 .today-table th:first-child,
 .compact-table th:first-child {
   min-width: 0;
   background: #f2f5fa;
 }
 
+/* sin borde derecho en ultima columna */
 .today-table td:last-child,
 .today-table th:last-child,
 .compact-table td:last-child,
@@ -248,6 +333,7 @@ a {
   border-right: none;
 }
 
+/* sin borde inferior en ultima fila */
 .today-table tr:last-child td,
 .today-table tr:last-child th,
 .compact-table tr:last-child td,
@@ -255,9 +341,11 @@ a {
   border-bottom: none;
 }
 
-/* =========================
-   Botones y estados
-========================= */
+/* =====================================================
+   BOTONES Y ESTADOS
+===================================================== */
+
+/* boton base reutilizable */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -274,16 +362,19 @@ a {
   cursor: pointer;
 }
 
+/* feedback visual al pasar mouse */
 .btn:hover {
   filter: brightness(0.98);
 }
 
+/* boton de accion secundaria (links) */
 .btn-link {
   background: var(--brand-soft);
   border-color: #b8cbf8;
   color: #123474;
 }
 
+/* estados de toma */
 .btn.is-pendiente {
   color: var(--pending);
   border-color: #e7c56d;
@@ -302,15 +393,18 @@ a {
   background: var(--no-soft);
 }
 
-/* =========================
-   Tarjetas y contenido
-========================= */
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+/* grid de cards, 1 columna en movil */
 .card-grid {
   display: grid;
   gap: 12px;
   grid-template-columns: 1fr;
 }
 
+/* card visual */
 .card {
   padding: 14px;
   border: var(--line);
@@ -318,6 +412,7 @@ a {
   background: var(--surface);
 }
 
+/* ajustes de margenes en texto interno de card */
 .card h3 {
   margin: 0 0 8px;
 }
@@ -326,25 +421,30 @@ a {
   margin: 0 0 6px;
 }
 
-/* =========================
-   Formularios
-========================= */
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+/* grilla de formulario */
 .form-grid {
   display: grid;
   gap: 12px;
 }
 
+/* campo individual (label + input) */
 .field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
+/* label/legend con peso visual */
 .field label,
 .field legend {
   font-weight: 600;
 }
 
+/* estilo unificado para controles */
 .field input,
 .field select,
 .field textarea {
@@ -358,6 +458,7 @@ a {
   background: var(--surface);
 }
 
+/* borde visual del fieldset */
 fieldset.field {
   margin: 0;
   padding: 10px;
@@ -365,6 +466,7 @@ fieldset.field {
   border-radius: 10px;
 }
 
+/* grilla de checkboxes */
 .check-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -378,6 +480,7 @@ fieldset.field {
   min-height: 36px;
 }
 
+/* badges de estado para tablas/listados */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -406,15 +509,20 @@ fieldset.field {
   border: 1px solid #e7c56d;
 }
 
+/* utility para hacer un item ocupar todo el ancho de la grilla */
 .full {
   grid-column: 1 / -1;
 }
 
-/* =========================
-   Footer
-========================= */
-.site-footer{
-  /* Alinea el footer con .container: mismo maximo y 16px laterales en movil. */
+/* =====================================================
+   FOOTER
+===================================================== */
+
+/*
+  Footer alineado visualmente al .container:
+  mismo max-width y margen lateral en movil.
+*/
+.site-footer {
   width: calc(100% - 32px);
   max-width: var(--max);
   margin: 16px auto 0;
@@ -424,15 +532,20 @@ fieldset.field {
   background: var(--surface);
 }
 
-.site-footer__text{
+.site-footer__text {
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-/* =========================
-   Accesibilidad
-========================= */
+/* =====================================================
+   ACCESIBILIDAD
+===================================================== */
+
+/*
+  Foco visible para teclado.
+  Muy importante para usuarios que no usan mouse/touch.
+*/
 .btn:focus-visible,
 .top-nav a:focus-visible,
 .field input:focus-visible,
@@ -442,6 +555,7 @@ fieldset.field {
   outline-offset: 2px;
 }
 
+/* clase helper para texto solo para lectores de pantalla */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -454,9 +568,16 @@ fieldset.field {
   border: 0;
 }
 
-/* =========================
-   Media queries (responsive)
-========================= */
+/* =====================================================
+   MEDIA QUERIES
+===================================================== */
+
+/*
+  Desde 720px:
+  - mostramos version desktop
+  - ocultamos version movil
+  - mejoramos composicion de header, cards y formularios
+*/
 @media (min-width: 720px) {
   .only-desktop {
     display: block;
@@ -481,7 +602,10 @@ fieldset.field {
   }
 }
 
-/* Sticky solo en desktop/tablet (la tabla semanal no se muestra en movil). */
+/*
+  Sticky de tabla semanal solo en desktop/tablet.
+  En movil no se usa porque no mostramos la week-table.
+*/
 @media (min-width: 720px) {
   .week-table thead th {
     position: sticky;
@@ -496,17 +620,20 @@ fieldset.field {
   }
 }
 
+/* 3 columnas para cards en pantallas grandes */
 @media (min-width: 1024px) {
   .card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
+/* Ajustes extra para pantallas pequenas */
 @media (max-width: 719px) {
   .check-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  /* fallback de week-table para otras paginas que aun la usen en movil */
   .week-table {
     min-width: 680px;
   }

@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Medicheck - Nuevo tratamiento</title>
+
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="layout">
+
   <main class="container">
+    <!-- Header + navegacion principal -->
     <header class="dash-header">
       <div class="page-header">
         <h1>Nuevo tratamiento</h1>
+
         <nav aria-label="Navegacion principal">
           <ul class="top-nav">
             <li><a href="../index.html">Dashboard</a></li>
@@ -22,17 +27,24 @@
       </div>
     </header>
 
+    <!--
+      Formulario principal del MVP.
+      En este punto es solo UI (sin logica JS/backend).
+    -->
     <form class="card form-grid" action="#" method="post">
+      <!-- Campo nombre -->
       <div class="field">
         <label for="nombre">Medicamento o suplemento</label>
         <input id="nombre" name="nombre" type="text" required>
       </div>
 
+      <!-- Campo dosis -->
       <div class="field">
         <label for="dosis">Dosis</label>
         <input id="dosis" name="dosis" type="text" placeholder="Ej: 20 mg" required>
       </div>
 
+      <!-- Selector de franja horaria -->
       <div class="field">
         <label for="franja">Franja horaria</label>
         <select id="franja" name="franja" required>
@@ -44,6 +56,10 @@
         </select>
       </div>
 
+      <!--
+        Grupo de checkboxes para dias.
+        Se usa fieldset+legend para semantica y accesibilidad.
+      -->
       <fieldset class="field">
         <legend>Dias de toma</legend>
         <div class="check-grid">
@@ -57,31 +73,36 @@
         </div>
       </fieldset>
 
+      <!-- Fecha inicio -->
       <div class="field">
         <label for="inicio">Fecha de inicio</label>
         <input id="inicio" name="inicio" type="date">
       </div>
 
+      <!-- Fecha fin -->
       <div class="field">
         <label for="fin">Fecha de fin</label>
         <input id="fin" name="fin" type="date">
       </div>
 
+      <!-- Notas del tratamiento -->
       <div class="field full">
         <label for="notas">Notas</label>
         <textarea id="notas" name="notas" rows="4" placeholder="Indicaciones adicionales"></textarea>
       </div>
 
+      <!-- Acciones del formulario -->
       <div class="actions full">
         <button class="btn" type="submit">Guardar tratamiento</button>
         <a class="btn btn-link" href="./tratamientos.html">Cancelar</a>
       </div>
     </form>
   </main>
-  <!-- Footer fijo al final en paginas con poco contenido (ver body.layout en CSS). -->
+
+  <!-- Footer comun -->
   <footer class="site-footer">
     <p class="site-footer__text">
-    Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
+      Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
     </p>
   </footer>
 </body>
