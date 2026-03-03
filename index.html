@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -113,7 +113,7 @@
         tabindex="0" permite enfocar el contenedor con teclado,
         util cuando hay scroll horizontal en tablas grandes.
       -->
-      <div class="table-wrap" role="region" aria-label="Calendario semanal de tomas" tabindex="0">
+      <div class="table-wrap week-wrap" role="region" aria-label="Calendario semanal de tomas" tabindex="0">
         <table class="week-table">
           <caption class="sr-only">Calendario lunes a domingo por franjas del dia</caption>
 
@@ -133,191 +133,88 @@
           <tbody>
             <tr>
               <th scope="row">Manana</th>
-
-              <!-- Lunes -->
               <td>
-                <div class="cell">
-                  <span class="pill">Vitamina D</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-
-              <!-- Martes -->
-              <td>
-                <div class="cell">
-                  <span class="pill">Omeprazol</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-
-              <td>
-                <div class="cell">
-                  <span class="pill">Losartan 50 mg</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
+                <ul class="med-list">
+                  <li class="med">
+                    <input class="med-toggle" type="checkbox" id="med-l-manana-vitd">
+                    <label class="med-name" for="med-l-manana-vitd" title="Vitamina D">Vitamina D</label>
+                  </li>
+                  <li class="med">
+                    <input class="med-toggle" type="checkbox" id="med-l-manana-omep" checked>
+                    <label class="med-name" for="med-l-manana-omep" title="Omeprazol">Omeprazol</label>
+                  </li>
+                </ul>
               </td>
               <td>
-                <div class="cell">
-                  <span class="pill">Atorvastatina 20 mg</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
+                <ul class="med-list">
+                  <li class="med is-overdue">
+                    <input class="med-toggle" type="checkbox" id="med-m-manana-los">
+                    <label class="med-name" for="med-m-manana-los" title="Losartan">Losartan</label>
+                  </li>
+                </ul>
               </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Levotiroxina 75 mcg</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Hierro</span>
-                  <span class="btn is-omitido">Omitido</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Calcio + D3</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
-              </td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
             </tr>
 
             <tr>
               <th scope="row">Mediodia</th>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
               <td>
-                <div class="cell">
-                  <span class="pill">Metformina 850 mg</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
+                <ul class="med-list">
+                  <li class="med">
+                    <input class="med-toggle" type="checkbox" id="med-j-mediodia-metf">
+                    <label class="med-name" for="med-j-mediodia-metf" title="Metformina">Metformina</label>
+                  </li>
+                  <li class="med">
+                    <input class="med-toggle" type="checkbox" id="med-j-mediodia-comp" checked>
+                    <label class="med-name" for="med-j-mediodia-comp" title="Complejo B">Complejo B</label>
+                  </li>
+                </ul>
               </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Ibuprofeno 400 mg</span>
-                  <span class="btn is-omitido">Omitido</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Probio Plus</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Aspirina 100 mg</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Complejo B</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Omega 3</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Vitamina C 1 g</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
-              </td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
             </tr>
 
             <tr>
               <th scope="row">Tarde</th>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
               <td>
-                <div class="cell">
-                  <span class="pill">Cetirizina 10 mg</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
+                <ul class="med-list">
+                  <li class="med is-overdue">
+                    <input class="med-toggle" type="checkbox" id="med-v-tarde-cet">
+                    <label class="med-name" for="med-v-tarde-cet" title="Cetirizina">Cetirizina</label>
+                  </li>
+                </ul>
               </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Colageno</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Melatonina 2 mg</span>
-                  <span class="btn is-omitido">Omitido</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Zinc 25 mg</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Calcio</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Vitamina K2</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Acido folico</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
             </tr>
 
             <tr>
               <th scope="row">Noche</th>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
               <td>
-                <div class="cell">
-                  <span class="pill">Magnesio</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
+                <ul class="med-list">
+                  <li class="med">
+                    <input class="med-toggle" type="checkbox" id="med-x-noche-mag" checked>
+                    <label class="med-name" for="med-x-noche-mag" title="Magnesio">Magnesio</label>
+                  </li>
+                </ul>
               </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Simvastatina 20 mg</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Dormicalm</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Melatonina 5 mg</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Probiotico nocturno</span>
-                  <span class="btn is-omitido">Omitido</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Coenzima Q10</span>
-                  <span class="btn is-tomado">Tomado</span>
-                </div>
-              </td>
-              <td>
-                <div class="cell">
-                  <span class="pill">Valeriana</span>
-                  <span class="btn is-pendiente">Pendiente</span>
-                </div>
-              </td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
+              <td><div class="cell muted">-</div></td>
             </tr>
           </tbody>
         </table>
@@ -328,7 +225,7 @@
   <!-- Footer global de la app -->
   <footer class="site-footer">
     <p class="site-footer__text">
-      Medicheck (MVP) — Registro y recordatorio. No ofrece consejos médicos.
+      Medicheck (MVP) - Registro y recordatorio. No ofrece consejos medicos.
     </p>
   </footer>
 </body>

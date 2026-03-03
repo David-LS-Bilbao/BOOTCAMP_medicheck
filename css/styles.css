@@ -23,7 +23,7 @@
   --ok: #0a7a3e;                     /* estado "tomado" */
   --ok-soft: #e8f9ef;
 
-  --no: #b42318;                     /* estado "omitido" */
+  --no: #6d0d06;                     /* estado "omitido" */
   --no-soft: #ffefef;
 
   --pending: #9a6700;                /* estado "pendiente" */
@@ -210,9 +210,10 @@ a {
 */
 .week-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
-  min-width: 820px;
+  min-width: 0;
 }
 
 /* celdas base de la tabla semanal */
@@ -220,9 +221,10 @@ a {
 .week-table td {
   border-bottom: var(--line);
   border-right: var(--line);
-  padding: var(--pad);
+  padding: 8px;
   vertical-align: top;
   background: var(--surface);
+  overflow: hidden;
 }
 
 /*
@@ -236,8 +238,14 @@ a {
 
 /* primera columna (franja) */
 .week-table th:first-child {
-  min-width: 130px;
+  width: 92px;
+  min-width: 92px;
   background: #f2f5fa;
+}
+
+/* dashboard semanal: no permitir scroll lateral */
+.week-wrap {
+  overflow-x: hidden;
 }
 
 /* limpiamos borde derecho en ultima columna */
@@ -276,6 +284,97 @@ a {
   border-radius: 999px;
   font-size: 0.93rem;
   font-weight: 600;
+}
+
+/* =====================================================
+   LISTA DE MEDICAMENTOS POR CELDA (SIN JS)
+===================================================== */
+
+/* una celda puede contener varios medicamentos en stack */
+.med-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+/* tarjeta ligera por medicamento */
+.med {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border: var(--line);
+  border-radius: 10px;
+  background: #f7f9fd;
+  min-height: 58px;
+}
+
+/* checkbox oculto visualmente, pero accesible para teclado */
+.med-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* nombre clicable, legible y truncado con ellipsis */
+.med-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  min-height: var(--tap);
+  padding: 8px 10px;
+  border: 1px solid #e7c56d;
+  border-radius: 10px;
+  background: var(--pending-soft); /* amarillo por defecto */
+  color: var(--pending);
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+}
+
+.med-name:hover {
+  filter: brightness(0.98);
+}
+
+/* al pulsar (checked), pasa a tomado (verde) */
+.med-toggle:checked + .med-name {
+  color: var(--ok);
+  border-color: #7dd4a0;
+  background: var(--ok-soft);
+}
+
+/*
+  estado rojo listo para control horario externo:
+  aplicar class="is-overdue" al .med cuando la franja haya pasado.
+*/
+.med.is-overdue .med-toggle:not(:checked) + .med-name {
+  color: var(--no);
+  border-color: #aa1515; 
+  background: var(--no-soft);
+}
+
+/* foco visible al navegar por teclado */
+.med-toggle:focus-visible + .med-name {
+  outline: 3px solid #0a66ff;
+  outline-offset: 2px;
 }
 
 /* =====================================================
@@ -389,7 +488,7 @@ a {
 
 .btn.is-omitido {
   color: var(--no);
-  border-color: #f2a4a4;
+  border-color: #9c0a0a;
   background: var(--no-soft);
 }
 
@@ -500,7 +599,7 @@ fieldset.field {
 .badge.no {
   color: var(--no);
   background: var(--no-soft);
-  border: 1px solid #f2a4a4;
+  border: 1px solid #860404;
 }
 
 .badge.pending {
@@ -635,7 +734,7 @@ fieldset.field {
 
   /* fallback de week-table para otras paginas que aun la usen en movil */
   .week-table {
-    min-width: 680px;
+    min-width: 0;
   }
 
   .week-table th,
@@ -644,7 +743,8 @@ fieldset.field {
   }
 
   .week-table th:first-child {
-    min-width: 96px;
+    width: 88px;
+    min-width: 88px;
   }
 
   .cell {
@@ -660,5 +760,12 @@ fieldset.field {
   .btn {
     font-size: 0.95rem;
     padding: 8px 10px;
+  }
+}
+
+/* en pantallas muy pequenas, dejamos mas ancho util para el nombre */
+@media (max-width: 480px) {
+  .med-name {
+    max-width: 100%;
   }
 }
