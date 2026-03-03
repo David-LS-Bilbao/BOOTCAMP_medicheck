@@ -124,7 +124,12 @@ a {
    Tabla semanal
 ========================= */
 .table-wrap {
-  overflow: auto;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+
   border: var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -146,17 +151,12 @@ a {
   background: var(--surface);
 }
 
+/* Por defecto (movil) sin sticky para evitar bugs de iOS Safari con overflow. */
 .week-table thead th {
-  position: sticky;
-  top: 0;
   background: #a7adb6;
-  z-index: 1;
 }
 
 .week-table th:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 2;
   min-width: 130px;
   background: #f2f5fa;
 }
@@ -406,6 +406,21 @@ fieldset.field {
   }
 }
 
+/* Sticky solo en pantallas medias/grandes para mantener desktop sin romper movil. */
+@media (min-width: 761px) {
+  .week-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .week-table th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+  }
+}
+
 @media (min-width: 1024px) {
   .card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -415,5 +430,33 @@ fieldset.field {
 @media (max-width: 760px) {
   .check-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .week-table {
+    min-width: 680px;
+  }
+
+  .week-table th,
+  .week-table td {
+    padding: 8px;
+  }
+
+  .week-table th:first-child {
+    min-width: 96px;
+  }
+
+  .cell {
+    min-height: 72px;
+    gap: 8px;
+  }
+
+  .pill {
+    font-size: 0.86rem;
+    padding: 6px 9px;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 8px 10px;
   }
 }
