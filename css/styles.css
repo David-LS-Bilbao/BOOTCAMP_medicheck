@@ -120,6 +120,15 @@ a {
   margin: 12px 0 16px;
 }
 
+/* Mobile-first: dashboard de hoy en movil y semanal en desktop/tablet. */
+.only-mobile {
+  display: block;
+}
+
+.only-desktop {
+  display: none;
+}
+
 /* =========================
    Tabla semanal
 ========================= */
@@ -192,6 +201,58 @@ a {
   border-radius: 999px;
   font-size: 0.93rem;
   font-weight: 600;
+}
+
+/* Tablas compactas para movil (sin scroll horizontal). */
+.today-wrap,
+.compact-wrap {
+  overflow-x: hidden;
+}
+
+.today-table,
+.compact-table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.today-table th,
+.today-table td,
+.compact-table th,
+.compact-table td {
+  border-bottom: var(--line);
+  border-right: var(--line);
+  padding: 10px;
+  background: var(--surface);
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.today-table thead th,
+.compact-table thead th {
+  background: #f2f5fa;
+}
+
+.today-table th:first-child,
+.compact-table th:first-child {
+  min-width: 0;
+  background: #f2f5fa;
+}
+
+.today-table td:last-child,
+.today-table th:last-child,
+.compact-table td:last-child,
+.compact-table th:last-child {
+  border-right: none;
+}
+
+.today-table tr:last-child td,
+.today-table tr:last-child th,
+.compact-table tr:last-child td,
+.compact-table tr:last-child th {
+  border-bottom: none;
 }
 
 /* =========================
@@ -339,6 +400,12 @@ fieldset.field {
   border: 1px solid #f2a4a4;
 }
 
+.badge.pending {
+  color: var(--pending);
+  background: var(--pending-soft);
+  border: 1px solid #e7c56d;
+}
+
 .full {
   grid-column: 1 / -1;
 }
@@ -391,6 +458,14 @@ fieldset.field {
    Media queries (responsive)
 ========================= */
 @media (min-width: 720px) {
+  .only-desktop {
+    display: block;
+  }
+
+  .only-mobile {
+    display: none;
+  }
+
   .page-header {
     flex-direction: row;
     justify-content: space-between;
@@ -406,8 +481,8 @@ fieldset.field {
   }
 }
 
-/* Sticky solo en pantallas medias/grandes para mantener desktop sin romper movil. */
-@media (min-width: 761px) {
+/* Sticky solo en desktop/tablet (la tabla semanal no se muestra en movil). */
+@media (min-width: 720px) {
   .week-table thead th {
     position: sticky;
     top: 0;
@@ -427,7 +502,7 @@ fieldset.field {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 719px) {
   .check-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
