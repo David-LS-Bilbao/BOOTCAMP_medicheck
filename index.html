@@ -74,28 +74,48 @@
             <tr>
               <th scope="row">Manana</th>
               <td>Vitamina D</td>
-              <td><span class="badge ok">Tomado</span></td>
+              <td>
+                <span class="status-pill">
+                  <input class="status-toggle" type="checkbox" id="hoy-manana-estado" checked>
+                  <label class="badge status-label" for="hoy-manana-estado">Tomado</label>
+                </span>
+              </td>
             </tr>
 
             <!-- Fila 2: ejemplo de toma pendiente -->
             <tr>
               <th scope="row">Mediodia</th>
               <td>Omeprazol</td>
-              <td><span class="badge pending">Pendiente</span></td>
+              <td>
+                <span class="status-pill">
+                  <input class="status-toggle" type="checkbox" id="hoy-mediodia-estado">
+                  <label class="badge status-label" for="hoy-mediodia-estado">Pendiente</label>
+                </span>
+              </td>
             </tr>
 
             <!-- Fila 3: franja de tarde completada -->
             <tr>
               <th scope="row">Tarde</th>
               <td>Paracetamol</td>
-              <td><span class="badge ok">Tomado</span></td>
+              <td>
+                <span class="status-pill">
+                  <input class="status-toggle" type="checkbox" id="hoy-tarde-estado" checked>
+                  <label class="badge status-label" for="hoy-tarde-estado">Tomado</label>
+                </span>
+              </td>
             </tr>
 
             <!-- Fila 4: ejemplo de toma omitida -->
             <tr>
               <th scope="row">Noche</th>
               <td>Magnesio</td>
-              <td><span class="badge no">Omitido</span></td>
+              <td>
+                <span class="status-pill is-overdue">
+                  <input class="status-toggle" type="checkbox" id="hoy-noche-estado">
+                  <label class="badge status-label" for="hoy-noche-estado">Omitido</label>
+                </span>
+              </td>
             </tr>
           </tbody>
         </table>

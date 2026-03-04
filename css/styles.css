@@ -23,7 +23,7 @@
   --ok: #0a7a3e;                     /* estado "tomado" */
   --ok-soft: #e8f9ef;
 
-  --no: #6d0d06;                     /* estado "omitido" */
+  --no: #f51000;                     /* estado "omitido" */
   --no-soft: #ffefef;
 
   --pending: #9a6700;                /* estado "pendiente" */
@@ -135,6 +135,10 @@ a {
   text-decoration: none;
   font-weight: 600;
   color: var(--text);
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(23, 70, 162, 0.2);
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 /* estilo del item de menu activo */
@@ -142,6 +146,18 @@ a {
   border-color: var(--brand);
   background: var(--brand-soft);
   color: #0f2d6a;
+}
+
+/* en touch, :active da feedback inmediato al tocar el menu */
+.top-nav a:active {
+  border-color: #9db6ee;
+  background: #dde9ff;
+}
+
+/* muchos moviles muestran mejor este feedback en :focus que en :hover */
+.top-nav a:focus {
+  border-color: #9db6ee;
+  background: #dde9ff;
 }
 
 /* texto secundario del aviso medico */
@@ -346,12 +362,22 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(23, 70, 162, 0.2);
+  touch-action: manipulation;
   user-select: none;
   margin: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .med-name:hover {
   filter: brightness(0.98);
+}
+
+/* en movil, este estado se ve al mantener el dedo pulsado */
+.med-name:active {
+  filter: none;
+  background: #ffe8ad;
+  border-color: #d2aa4d;
 }
 
 /* al pulsar (checked), pasa a tomado (verde) */
@@ -459,6 +485,9 @@ a {
   text-decoration: none;
   background: var(--surface);
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(23, 70, 162, 0.2);
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
 }
 
 /* feedback visual al pasar mouse */
@@ -466,11 +495,44 @@ a {
   filter: brightness(0.98);
 }
 
+/* en movil no hay hover fiable, por eso usamos :active para tap */
+.btn:active {
+  filter: none;
+  border-color: #9db6ee;
+  background: #e5edff;
+}
+
+/* en varios navegadores moviles el focus se mantiene un instante y se aprecia mejor */
+.btn:focus {
+  border-color: #9db6ee;
+  background: #e5edff;
+}
+
 /* boton de accion secundaria (links) */
 .btn-link {
   background: var(--brand-soft);
   border-color: #b8cbf8;
   color: #123474;
+}
+
+.btn-link:active,
+.btn-link:focus {
+  background: #d6e4ff;
+  border-color: #8daeea;
+  color: #0f2d6a;
+}
+
+/* evitar feedback visual en botones deshabilitados */
+.btn:disabled,
+.btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn:disabled:active,
+.btn[disabled]:active {
+  border-color: #d2d8e2;
+  background: var(--surface);
 }
 
 /* estados de toma */
@@ -490,6 +552,43 @@ a {
   color: var(--no);
   border-color: #9c0a0a;
   background: var(--no-soft);
+}
+
+/*
+  Refuerzo para pantallas tactiles:
+  algunos navegadores moviles aplican peor :hover,
+  asi que forzamos feedback claro en :active/:focus.
+*/
+@media (hover: none) and (pointer: coarse) {
+  .top-nav a:active,
+  .top-nav a:focus,
+  .btn:not([disabled]):active,
+  .btn:not([disabled]):focus {
+    background: #d6e4ff;
+    border-color: #8daeea;
+    color: #0f2d6a;
+  }
+
+  .btn.is-pendiente:active,
+  .btn.is-pendiente:focus {
+    background: #f1dfac;
+    border-color: #d2aa4d;
+    color: #7d5500;
+  }
+
+  .btn.is-tomado:active,
+  .btn.is-tomado:focus {
+    background: #d8f3e3;
+    border-color: #66bd8c;
+    color: #0a6a36;
+  }
+
+  .btn.is-omitido:active,
+  .btn.is-omitido:focus {
+    background: #ffdede;
+    border-color: #d16f6f;
+    color: #7f0f0f;
+  }
 }
 
 /* =====================================================
@@ -590,6 +689,22 @@ fieldset.field {
   font-size: 0.9rem;
 }
 
+/* cuando badge es un <button>, quitamos estilo nativo y habilitamos touch feedback */
+button.badge {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(23, 70, 162, 0.2);
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, filter 0.2s ease;
+}
+
+button.badge:active,
+button.badge:focus {
+  filter: brightness(0.92);
+}
+
 .badge.ok {
   color: var(--ok);
   background: var(--ok-soft);
@@ -606,6 +721,66 @@ fieldset.field {
   color: var(--pending);
   background: var(--pending-soft);
   border: 1px solid #e7c56d;
+}
+
+/* =====================================================
+   PILLS TOGGLE EN MOVIL (SIN JS)
+===================================================== */
+
+/* wrapper del toggle de estado en tablas compactas */
+.status-pill {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+/* checkbox oculto visualmente, accesible para teclado/lectores */
+.status-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* etiqueta visual del estado (pill clicable) */
+.status-label {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(23, 70, 162, 0.2);
+  touch-action: manipulation;
+}
+
+/* estado base = pendiente (amarillo) */
+.status-toggle + .status-label {
+  color: var(--pending);
+  background: var(--pending-soft);
+  border: 1px solid #e7c56d;
+}
+
+/* al marcar, pasa a tomado (verde) */
+.status-toggle:checked + .status-label {
+  color: var(--ok);
+  background: var(--ok-soft);
+  border: 1px solid #7dd4a0;
+}
+
+/* si viene con class is-overdue y esta sin marcar, lo mostramos rojo */
+.status-pill.is-overdue .status-toggle:not(:checked) + .status-label {
+  color: var(--no);
+  background: var(--no-soft);
+  border: 1px solid #860404;
+}
+
+/* foco visible al navegar con teclado */
+.status-toggle:focus-visible + .status-label {
+  outline: 3px solid #0a66ff;
+  outline-offset: 2px;
 }
 
 /* utility para hacer un item ocupar todo el ancho de la grilla */
