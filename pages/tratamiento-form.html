@@ -20,7 +20,7 @@
           <ul class="top-nav">
             <li><a href="../index.html">Dashboard</a></li>
             <li><a href="./tratamientos.html">Tratamientos</a></li>
-   
+            <li><a href="./tratamiento-form.html" aria-current="page">Nuevo tratamiento</a></li>
             <li><a href="./history.html">Historial</a></li>
           </ul>
         </nav>
@@ -31,7 +31,7 @@
       Formulario principal del MVP.
       En este punto es solo UI (sin logica JS/backend).
     -->
-    <form class="card form-grid" action="#" method="post">
+    <form class="card form-grid" action="./needDBs.html" method="get">
       <!-- Campo nombre -->
       <div class="field">
         <label for="nombre">Medicamento o suplemento</label>
@@ -93,7 +93,8 @@
 
       <!-- Acciones del formulario -->
       <div class="actions full">
-        <button class="btn" type="submit">Guardar tratamiento</button>
+        <a class="btn" href="./needDBs.html" aria-label="Guardar tratamiento (requiere base de datos)">Guardar tratamiento</a>
+        <a class="btn btn-link" href="./needAPI.html" aria-label="Consultar ficha del medicamento (requiere API)">Consultar ficha medicamento</a>
         <a class="btn btn-link" href="./tratamientos.html">Cancelar</a>
       </div>
     </form>

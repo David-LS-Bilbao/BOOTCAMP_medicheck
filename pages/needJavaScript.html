@@ -1,22 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEJORA CON JAVASCRIPT</title>
-      <!-- Hoja de estilos principal del proyecto -->
-  <link rel="stylesheet" href="css/styles.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicheck - Requiere JavaScript</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    <!-- mostrar mensaje y pantalla de Javascript-->
-    <h1>MEJORA CON JAVASCRIPT</h1>  
+<body class="layout">
+  <main class="container">
+    <header class="dash-header">
+      <div class="page-header">
+        <h1>Accion no disponible en MVP estatico</h1>
+        <nav aria-label="Navegacion principal">
+          <ul class="top-nav">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="./tratamientos.html">Tratamientos</a></li>
+            <li><a href="./tratamiento-form.html">Nuevo tratamiento</a></li>
+            <li><a href="./history.html">Historial</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  
-    
+    <section class="card" aria-labelledby="jsTitle">
+      <h2 id="jsTitle">Esta accion requiere JavaScript real</h2>
+      <p>
+        En esta version solo mostramos interfaz. Para comportamiento dinamico hace falta logica de cliente.
+      </p>
+      <ul>
+        <li>Cambiar estados de toma con click y mantenerlos en pantalla.</li>
+        <li>Programar recordatorios y notificaciones.</li>
+        <li>Actualizar tablas y contadores en tiempo real.</li>
+      </ul>
 
+      <section class="actions" aria-label="Acciones de retorno">
+        <a class="btn" href="../index.html">Volver al Dashboard</a>
+        <a class="btn btn-link" href="./history.html">Volver al Historial</a>
+      </section>
+    </section>
+  </main>
 
-      <!-- Footer global de la app -->
   <footer class="site-footer">
     <p class="site-footer__text">
       Medicheck (MVP) - Registro y recordatorio. No ofrece consejos medicos.

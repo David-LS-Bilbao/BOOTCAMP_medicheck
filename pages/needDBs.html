@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEJORA CON BASES DE DATOS</title>
-          <!-- Hoja de estilos principal del proyecto -->
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicheck - Requiere Base de Datos</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    
+<body class="layout">
+  <main class="container">
+    <header class="dash-header">
+      <div class="page-header">
+        <h1>Accion no disponible en MVP estatico</h1>
+        <nav aria-label="Navegacion principal">
+          <ul class="top-nav">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="./tratamientos.html">Tratamientos</a></li>
+            <li><a href="./tratamiento-form.html">Nuevo tratamiento</a></li>
+            <li><a href="./history.html">Historial</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
+    <section class="card" aria-labelledby="dbTitle">
+      <h2 id="dbTitle">Esta accion requiere Base de Datos</h2>
+      <p>
+        En esta demo la accion esta simulada. Para que funcione de forma real se necesita persistencia de datos.
+      </p>
+      <ul>
+        <li>Guardar tratamientos nuevos y ediciones.</li>
+        <li>Pausar o reactivar tratamientos de forma persistente.</li>
+        <li>Conservar historial real entre sesiones.</li>
+      </ul>
 
-      <!-- Footer global de la app -->
+      <section class="actions" aria-label="Acciones de retorno">
+        <a class="btn" href="../index.html">Volver al Dashboard</a>
+        <a class="btn btn-link" href="./tratamientos.html">Volver a Tratamientos</a>
+      </section>
+    </section>
+  </main>
+
   <footer class="site-footer">
     <p class="site-footer__text">
       Medicheck (MVP) - Registro y recordatorio. No ofrece consejos medicos.

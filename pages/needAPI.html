@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <!-- Hoja de estilos principal del proyecto -->
-  <link rel="stylesheet" href="css/styles.css">
-    <title>NECESARIO CONSUMO DE APIs</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicheck - Requiere API</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    
+<body class="layout">
+  <main class="container">
+    <header class="dash-header">
+      <div class="page-header">
+        <h1>Accion no disponible en MVP estatico</h1>
+        <nav aria-label="Navegacion principal">
+          <ul class="top-nav">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="./tratamientos.html">Tratamientos</a></li>
+            <li><a href="./tratamiento-form.html">Nuevo tratamiento</a></li>
+            <li><a href="./history.html">Historial</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
+    <section class="card" aria-labelledby="apiTitle">
+      <h2 id="apiTitle">Esta accion requiere consumo de API</h2>
+      <p>
+        En el MVP actual no hay integracion externa. Para habilitar esta accion hay que conectarse a un servicio de medicamentos.
+      </p>
+      <ul>
+        <li>Buscar fichas oficiales por nombre o principio activo.</li>
+        <li>Mostrar contraindicaciones y dosis recomendadas por fuente externa.</li>
+        <li>Validar resultados y manejar errores de red.</li>
+      </ul>
 
-      <!-- Footer global de la app -->
+      <section class="actions" aria-label="Acciones de retorno">
+        <a class="btn" href="../index.html">Volver al Dashboard</a>
+        <a class="btn btn-link" href="./tratamiento-form.html">Volver al Formulario</a>
+      </section>
+    </section>
+  </main>
+
   <footer class="site-footer">
     <p class="site-footer__text">
       Medicheck (MVP) - Registro y recordatorio. No ofrece consejos medicos.

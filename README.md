@@ -27,6 +27,9 @@ medicheck/
     tratamientos.html
     tratamiento-form.html
     history.html
+    needDBs.html
+    needAPI.html
+    needJavaScript.html
   images/
     index1.png
   docs/
@@ -41,6 +44,14 @@ medicheck/
 2. `pages/tratamientos.html`: listado visual de tratamientos activos.
 3. `pages/tratamiento-form.html`: formulario para alta/edicion (solo UI).
 4. `pages/history.html`: historial de tomas con version movil y desktop/tablet.
+5. `pages/needDBs.html`: placeholder para acciones que requieren base de datos.
+6. `pages/needAPI.html`: placeholder para acciones que requieren consumo de API.
+7. `pages/needJavaScript.html`: placeholder para acciones que requieren logica JS real.
+
+## Flujos placeholder para demo
+- Acciones de persistencia (editar, pausar, guardar): redirigen a `pages/needDBs.html`.
+- Consulta externa de medicamentos: redirige a `pages/needAPI.html`.
+- Cambios de estado dinamicos con click: redirigen a `pages/needJavaScript.html`.
 
 ## Responsive y accesibilidad implementados
 - Enfoque mobile-first.

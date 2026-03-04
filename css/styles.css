@@ -365,8 +365,16 @@ a {
   -webkit-tap-highlight-color: rgba(23, 70, 162, 0.2);
   touch-action: manipulation;
   user-select: none;
+  text-decoration: none;
   margin: 0;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* equivalente visual de "tomado" para links en la tabla semanal */
+.med-name.is-done {
+  color: var(--ok);
+  border-color: #7dd4a0;
+  background: var(--ok-soft);
 }
 
 .med-name:hover {
@@ -687,6 +695,7 @@ fieldset.field {
   border-radius: 999px;
   font-weight: 700;
   font-size: 0.9rem;
+  text-decoration: none;
 }
 
 /* cuando badge es un <button>, quitamos estilo nativo y habilitamos touch feedback */

@@ -29,6 +29,7 @@
         <!-- Menu principal de navegacion entre pantallas -->
         <nav aria-label="Navegacion principal">
           <ul class="top-nav">
+            <li><a href="./index.html" aria-current="page">Dashboard</a></li>
             <li><a href="./pages/tratamientos.html">Tratamientos</a></li>
             <li><a href="./pages/tratamiento-form.html">Nuevo tratamiento</a></li>
             <li><a href="./pages/history.html">Historial</a></li>
@@ -75,10 +76,7 @@
               <th scope="row">Manana</th>
               <td>Vitamina D</td>
               <td>
-                <span class="status-pill">
-                  <input class="status-toggle" type="checkbox" id="hoy-manana-estado" checked>
-                  <label class="badge status-label" for="hoy-manana-estado">Tomado</label>
-                </span>
+                <a class="badge ok status-link" href="./pages/needJavaScript.html" aria-label="Cambiar estado de la toma de la manana (requiere JavaScript)">Tomado</a>
               </td>
             </tr>
 
@@ -87,10 +85,7 @@
               <th scope="row">Mediodia</th>
               <td>Omeprazol</td>
               <td>
-                <span class="status-pill">
-                  <input class="status-toggle" type="checkbox" id="hoy-mediodia-estado">
-                  <label class="badge status-label" for="hoy-mediodia-estado">Pendiente</label>
-                </span>
+                <a class="badge pending status-link" href="./pages/needJavaScript.html" aria-label="Cambiar estado de la toma de mediodia (requiere JavaScript)">Pendiente</a>
               </td>
             </tr>
 
@@ -99,10 +94,7 @@
               <th scope="row">Tarde</th>
               <td>Paracetamol</td>
               <td>
-                <span class="status-pill">
-                  <input class="status-toggle" type="checkbox" id="hoy-tarde-estado" checked>
-                  <label class="badge status-label" for="hoy-tarde-estado">Tomado</label>
-                </span>
+                <a class="badge ok status-link" href="./pages/needJavaScript.html" aria-label="Cambiar estado de la toma de tarde (requiere JavaScript)">Tomado</a>
               </td>
             </tr>
 
@@ -111,10 +103,7 @@
               <th scope="row">Noche</th>
               <td>Magnesio</td>
               <td>
-                <span class="status-pill is-overdue">
-                  <input class="status-toggle" type="checkbox" id="hoy-noche-estado">
-                  <label class="badge status-label" for="hoy-noche-estado">Omitido</label>
-                </span>
+                <a class="badge no status-link" href="./pages/needJavaScript.html" aria-label="Cambiar estado de la toma de noche (requiere JavaScript)">Omitido</a>
               </td>
             </tr>
           </tbody>
@@ -156,20 +145,17 @@
               <td>
                 <ul class="med-list">
                   <li class="med">
-                    <input class="med-toggle" type="checkbox" id="med-l-manana-vitd">
-                    <label class="med-name" for="med-l-manana-vitd" title="Vitamina D">Vitamina D</label>
+                    <a class="med-name" href="./pages/needJavaScript.html" aria-label="Marcar toma de Vitamina D (requiere JavaScript)" title="Vitamina D">Vitamina D</a>
                   </li>
                   <li class="med">
-                    <input class="med-toggle" type="checkbox" id="med-l-manana-omep" checked>
-                    <label class="med-name" for="med-l-manana-omep" title="Omeprazol">Omeprazol</label>
+                    <a class="med-name is-done" href="./pages/needJavaScript.html" aria-label="Marcar toma de Omeprazol (requiere JavaScript)" title="Omeprazol">Omeprazol</a>
                   </li>
                 </ul>
               </td>
               <td>
                 <ul class="med-list">
                   <li class="med is-overdue">
-                    <input class="med-toggle" type="checkbox" id="med-m-manana-los">
-                    <label class="med-name" for="med-m-manana-los" title="Losartan">Losartan</label>
+                    <a class="med-name" href="./pages/needJavaScript.html" aria-label="Marcar toma de Losartan (requiere JavaScript)" title="Losartan">Losartan</a>
                   </li>
                 </ul>
               </td>
@@ -187,12 +173,10 @@
               <td>
                 <ul class="med-list">
                   <li class="med">
-                    <input class="med-toggle" type="checkbox" id="med-j-mediodia-metf">
-                    <label class="med-name" for="med-j-mediodia-metf" title="Metformina">Metformina</label>
+                    <a class="med-name" href="./pages/needJavaScript.html" aria-label="Marcar toma de Metformina (requiere JavaScript)" title="Metformina">Metformina</a>
                   </li>
                   <li class="med">
-                    <input class="med-toggle" type="checkbox" id="med-j-mediodia-comp" checked>
-                    <label class="med-name" for="med-j-mediodia-comp" title="Complejo B">Complejo B</label>
+                    <a class="med-name is-done" href="./pages/needJavaScript.html" aria-label="Marcar toma de Complejo B (requiere JavaScript)" title="Complejo B">Complejo B</a>
                   </li>
                 </ul>
               </td>
@@ -210,8 +194,7 @@
               <td>
                 <ul class="med-list">
                   <li class="med is-overdue">
-                    <input class="med-toggle" type="checkbox" id="med-v-tarde-cet">
-                    <label class="med-name" for="med-v-tarde-cet" title="Cetirizina">Cetirizina</label>
+                    <a class="med-name" href="./pages/needJavaScript.html" aria-label="Marcar toma de Cetirizina (requiere JavaScript)" title="Cetirizina">Cetirizina</a>
                   </li>
                 </ul>
               </td>
@@ -226,8 +209,7 @@
               <td>
                 <ul class="med-list">
                   <li class="med">
-                    <input class="med-toggle" type="checkbox" id="med-x-noche-mag" checked>
-                    <label class="med-name" for="med-x-noche-mag" title="Magnesio">Magnesio</label>
+                    <a class="med-name is-done" href="./pages/needJavaScript.html" aria-label="Marcar toma de Magnesio (requiere JavaScript)" title="Magnesio">Magnesio</a>
                   </li>
                 </ul>
               </td>
