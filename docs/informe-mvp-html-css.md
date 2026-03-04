@@ -1,131 +1,83 @@
-# Informe técnico MVP HTML/CSS - Medicheck
+# Informe tecnico MVP HTML/CSS - Medicheck (revalidado 2026-03-04)
 
-## 1) Resumen ejecutivo (10 líneas)
-1. El MVP cumple bien la base de **HTML/CSS de fundamentos** para una presentación sin JavaScript.
-2. La navegación interna entre `index.html` y `pages/*` usa rutas relativas correctas (`./` y `../`).
-3. El calendario semanal está bien modelado como tabla con `caption`, `thead`, `tbody` y encabezados con `scope`.
-4. El formulario principal cumple accesibilidad básica: `label for`, controles asociados y `fieldset` + `legend`.
-5. En CSS hay buena base: cascada clara, `box-sizing: border-box` global, uso de Flex/Grid y media queries.
-6. Se detecta foco visible con `:focus-visible` en navegación, botones y campos de formulario.
-7. Riesgo importante: falta `footer` semántico en todas las páginas (criterio de estructura semántica incompleto).
-8. Riesgo importante: `README.md` no refleja la estructura real de carpetas/archivos actual.
-9. Riesgo menor: existen botones visuales sin funcionalidad real en página de tratamientos (puede confundir en demo estática).
-10. Con ajustes pequeños de semántica/documentación, el MVP queda sólido y alineado al módulo.
+## 1) Resumen ejecutivo (10 lineas)
+1. El MVP cumple el objetivo de presentacion en Modulo 1 sin JavaScript.
+2. La estructura general usa `header`, `nav`, `main` y `footer` en las vistas principales.
+3. Las rutas relativas entre `index.html` y `pages/*` son correctas.
+4. Dashboard e historial aplican split responsive (`only-mobile` / `only-desktop`).
+5. Las tablas usan semantica valida: `caption`, `thead`, `tbody`, `th scope`.
+6. El formulario mantiene `label for`, `fieldset` y `legend`.
+7. El CSS usa enfoque mobile-first, variables y breakpoints consistentes.
+8. Se mantiene foco visible para navegacion por teclado.
+9. Las acciones no implementadas redirigen a placeholders (DB/API/JS) para evitar falsas expectativas.
+10. No se detectan bloqueos funcionales para una demo estatica.
 
 ## 2) Checklist de cumplimiento
 
 ### HTML
-- ✅ `<!DOCTYPE html>`, `lang`, `meta charset` y `meta viewport` presentes.
-- ⚠️ Estructura semántica parcial: hay `main/header/nav/section/article`, pero falta `footer` en todas las vistas.
-- ✅ Rutas relativas correctas entre `index.html` y `pages/*`.
-- ✅ Enlaces externos seguros (`target="_blank"` + `rel`) **N/A**: no hay enlaces externos.
-- ✅ Tabla de calendario con `table`, `caption`, `thead`, `tbody` y `th` con `scope`.
-- ✅ Formulario accesible con `label for` y agrupación con `fieldset` + `legend`.
+- ✅ Estructura base correcta (`<!DOCTYPE html>`, `lang="es"`, `meta charset`, `meta viewport`).
+- ✅ Estructura semantica presente (`header/nav/main/footer`) en pantallas principales y placeholders.
+- ✅ Rutas relativas correctas (`./` y `../`).
+- ✅ Tablas con semantica completa (`caption`, `thead`, `tbody`, `scope`).
+- ✅ Formulario accesible (`label for`, `fieldset`, `legend`).
+- ✅ Acciones de navegacion implementadas como enlaces `<a>` cuando corresponde.
 
 ### CSS
-- ✅ Unidades de fuente en `rem` (sin `font-size` en `px`).
-- ✅ `box-sizing: border-box` global aplicado.
-- ✅ Layout con Flexbox/Grid en navegación, acciones, cards y formulario.
-- ✅ Responsive con media queries (`720px`, `760px`, `1024px`) y tabla con scroll horizontal.
-- ✅ Foco visible en interactivos (`.btn`, `.top-nav a`, campos de formulario).
+- ✅ `box-sizing: border-box` global.
+- ✅ Layout con Flexbox/Grid en nav, cards, acciones y formularios.
+- ✅ Responsive con media queries (breakpoint principal 720px).
+- ✅ Focus visible para teclado en elementos interactivos.
+- ✅ Reglas para tablas compactas y tabla semanal sin romper desktop.
 
 ### MVP
-- ✅ Alcance de 3 funcionalidades core respetado a nivel **UI** (sin JS).
-- ⚠️ Documentación del MVP desactualizada respecto a estructura real (`README.md`).
-- ⚠️ Algunos CTAs de acción (`Pausar`) sugieren comportamiento no implementado en maqueta estática.
+- ✅ Alcance acotado a UI estatica (sin JS/backend).
+- ✅ Funcionalidades fuera de alcance redirigidas a placeholders tecnicos.
+- ✅ Navegacion de demo sin botones muertos ni 404 internos.
 
 ## 3) Hallazgos por severidad
 
 ### P0 (bloqueante)
-- ✅ No se detectan P0.
+- ✅ No se detectan.
 
 ### P1 (importante)
-
-1. **Falta `footer` semántico en todas las páginas**
-- Archivo/línea aprox.: `index.html` (10-107), `pages/tratamientos.html` (10-68), `pages/tratamiento-form.html` (10-81), `pages/history.html` (10-60).
-- Impacto: incumple criterio semántico solicitado (`header/nav/main/footer`) y reduce consistencia estructural.
-- Corrección mínima sugerida:
-```html
-<footer class="site-footer">
-  <p>Medicheck MVP - The Bridge 2026</p>
-</footer>
-```
-
-2. **`README.md` no coincide con estructura real del proyecto**
-- Archivo/línea aprox.: `README.md` líneas 24-32.
-- Impacto: complica evaluación/docencia y onboarding; menciona archivos en raíz que hoy están en `pages/` y usa `historial.html` en lugar de `history.html`.
-- Corrección mínima sugerida:
-```md
-medicheck/
-  index.html
-  pages/
-    tratamientos.html
-    tratamiento-form.html
-    history.html
-  css/
-    styles.css
-```
-
-3. **Botones de acción sin funcionalidad en MVP estático (`Pausar`)**
-- Archivo/línea aprox.: `pages/tratamientos.html` líneas 40, 51, 62.
-- Impacto: en demo sin JS puede generar expectativa de interacción real.
-- Corrección mínima sugerida (si se mantiene 100% estático):
-```html
-<span class="btn" aria-disabled="true">Pausar (demo)</span>
-```
+- ✅ No se detectan hallazgos abiertos para demo estatica.
 
 ### P2 (mejora)
-
-1. **No hay `.gitignore` local en el proyecto (opcional)**
-- Archivo/línea aprox.: `PROGRAMS/medicheck/.gitignore` no existe.
-- Impacto: riesgo de subir artefactos locales si crece el proyecto.
-- Corrección mínima sugerida:
-```gitignore
-.DS_Store
-.vscode/
-```
-
-2. **Checklist de verificación en README sin estado actualizado**
-- Archivo/línea aprox.: `README.md` líneas 49-53.
-- Impacto: menor, pero resta trazabilidad al cierre de MVP.
-- Corrección mínima sugerida:
-```md
-- [x] El CSS se carga correctamente
-- [x] El dashboard se ve en desktop y móvil
-```
+1. Unificar copy y acentos en todos los textos visibles (`Manana` vs `Mañana`) para presentacion.
+2. Revisar comentarios legacy en HTML/CSS para reducir ruido antes de entrega final.
+3. Añadir una guia corta de "flujo demo" en README para quien evalua por primera vez.
 
 ## 4) Acciones recomendadas
 
 ### Fix hoy (MVP)
-1. Añadir `footer` simple en las 4 páginas para cerrar semántica.
-2. Actualizar `README.md` con estructura/rutas reales.
-3. Etiquetar como “demo” o desactivar semánticamente acciones no implementadas (`Pausar`).
+1. Mantener placeholders DB/API/JS como flujo oficial de funcionalidades fuera de alcance.
+2. Revisar una pasada de textos y consistencia visual (nomenclatura y ortografia).
+3. Congelar estilos para evitar regresiones antes de presentacion.
 
 ### Mejoras para destacar
-1. Añadir enlace “Saltar al contenido” al inicio para accesibilidad de teclado.
-2. Ajustar consistencia de textos (`Manana`/`Días`) y acentos para presentación.
-3. Crear `.gitignore` básico del proyecto.
+1. Implementar JS real para cambio de estados y recordatorios.
+2. Conectar persistencia (localStorage o backend).
+3. Integrar API de medicamentos para autocompletado y ficha tecnica.
 
-## 5) Validación manual (pasos concretos)
-1. Abrir `index.html` y navegar a `Tratamientos`, `Nuevo tratamiento` e `Historial`; confirmar que todas las rutas funcionen.
-2. Desde cada página, usar menú superior para volver a `Dashboard`; verificar `aria-current="page"` visualmente.
-3. En móvil (DevTools), validar scroll horizontal de tabla semanal e historial.
-4. Recorrer con `Tab` toda la interfaz; confirmar foco visible en links/botones/inputs/select/textarea.
-5. Revisar tabla semanal e historial: presencia de `caption`, `thead`, `tbody` y `th scope`.
-6. Revisar formulario: asociación `label for` + `id`, `fieldset` y `legend` en “Días de toma”.
+## 5) Validacion manual (pasos concretos)
+1. Abrir `index.html` y navegar por menu a Tratamientos, Nuevo tratamiento e Historial.
+2. En dashboard, pulsar estados/pills y confirmar redireccion a `pages/needJavaScript.html`.
+3. En tratamientos, pulsar Editar/Pausar y confirmar redireccion a `pages/needDBs.html`.
+4. En formulario, pulsar Guardar y confirmar `pages/needDBs.html`; pulsar consulta y confirmar `pages/needAPI.html`.
+5. En movil (<720px), validar tabla compacta de dashboard e historial.
+6. En desktop (>=720px), validar tabla semanal/tablas completas.
+7. Navegar con teclado (`Tab`) y verificar foco visible.
 
 ## 6) Propuesta de commits y ramas
 
-### Rama sugerida principal
-- `fix/p0-p1-mvp-html-css` (aunque no hay P0, sirve para agrupar hallazgos críticos de revisión)
+### Rama sugerida
+- `docs/update-mvp-report`
 
-### Commits pequeños (3-5)
-1. `chore/docs: alinear README con estructura real de medicheck`
-2. `fix(html): añadir footer semántico en todas las vistas`
-3. `fix(ui): marcar acciones no funcionales como demo estática`
-4. `chore: agregar .gitignore base para entorno local`
-5. `docs: actualizar checklist de validación MVP`
+### Commits pequenos (3-5)
+1. `docs(readme): sync project status and placeholder flows`
+2. `docs: refresh mobile/history responsive fix notes`
+3. `docs: revalidate mvp html-css report after placeholder integration`
 
 ---
 
-**Nota de alcance:** informe realizado sin modificar código funcional; evaluación centrada en HTML/CSS del Módulo 1 y MVP estático sin JavaScript.
+Nota: informe actualizado para el estado actual del proyecto tras integrar placeholders DB/API/JS y ajustes responsive de tablas.

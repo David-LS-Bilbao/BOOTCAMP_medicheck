@@ -1,22 +1,23 @@
 # Medicheck
 
-Medicheck es un MVP estatico para visualizar seguimiento de tratamientos (sin JS ni backend).
+Medicheck es un MVP estatico para demo de seguimiento de tratamientos.
+No usa JavaScript, backend ni base de datos.
 
 > Aviso: esta app no ofrece consejos medicos ni sustituye a profesionales de salud.
 
-## Estado actual (2026-03-03)
-- Interfaz navegable en 4 pantallas: dashboard, tratamientos, formulario e historial.
-- Dashboard con vista movil de "Plan de hoy" y vista desktop/tablet de calendario semanal.
-- Historial con tabla compacta en movil y tabla completa en desktop/tablet.
-- Listado de tratamientos y formulario listos como maqueta UI.
-- Footer comun y estilos compartidos en todas las vistas.
+## Estado actual (2026-03-04)
+- Navegacion completa en 7 pantallas.
+- Dashboard e historial con tablas responsive (movil y desktop/tablet).
+- Acciones no implementadas redirigen a placeholders de alcance tecnico.
+- Footer y estilos compartidos en todas las vistas.
 
 ## Stack
-- HTML5 semantico.
-- CSS3 (variables, Flexbox, Grid, media queries).
-- Sin JavaScript, sin base de datos y sin backend.
+- HTML5 semantico
+- CSS3 (variables, Flexbox, Grid, media queries)
+- Sin JavaScript
+- Sin backend
 
-## Estructura actual del proyecto
+## Estructura del proyecto
 ```text
 medicheck/
   index.html
@@ -40,45 +41,44 @@ medicheck/
 ```
 
 ## Pantallas incluidas
-1. `index.html`: dashboard semanal (tabla compacta en movil + tabla completa en desktop/tablet).
-2. `pages/tratamientos.html`: listado visual de tratamientos activos.
-3. `pages/tratamiento-form.html`: formulario para alta/edicion (solo UI).
-4. `pages/history.html`: historial de tomas con version movil y desktop/tablet.
+1. `index.html`: dashboard (tabla "Plan de hoy" en movil + tabla semanal en desktop/tablet).
+2. `pages/tratamientos.html`: listado visual de tratamientos.
+3. `pages/tratamiento-form.html`: formulario de alta/edicion (solo UI).
+4. `pages/history.html`: historial de tomas (tabla compacta movil + tabla completa desktop/tablet).
 5. `pages/needDBs.html`: placeholder para acciones que requieren base de datos.
 6. `pages/needAPI.html`: placeholder para acciones que requieren consumo de API.
-7. `pages/needJavaScript.html`: placeholder para acciones que requieren logica JS real.
+7. `pages/needJavaScript.html`: placeholder para acciones que requieren logica JavaScript.
 
-## Flujos placeholder para demo
-- Acciones de persistencia (editar, pausar, guardar): redirigen a `pages/needDBs.html`.
-- Consulta externa de medicamentos: redirige a `pages/needAPI.html`.
-- Cambios de estado dinamicos con click: redirigen a `pages/needJavaScript.html`.
+## Flujos placeholder de demo
+- `needDBs.html`: guardar/editar/pausar tratamientos e historial persistente.
+- `needAPI.html`: consulta de fichas de medicamento y validacion externa.
+- `needJavaScript.html`: cambio dinamico de estados, recordatorios y actualizaciones en tiempo real.
 
-## Responsive y accesibilidad implementados
+## Responsive y accesibilidad
 - Enfoque mobile-first.
-- `only-mobile` y `only-desktop` para alternar vistas segun ancho.
-- Breakpoints principales en `720px` y `1024px`.
-- `table-wrap` con scroll horizontal cuando aplica.
-- Semantica de tablas: `caption`, `thead`, `tbody`, `th scope`.
-- Formulario con `label for`, `fieldset` y `legend`.
-- Foco visible con `:focus-visible` para navegacion por teclado.
+- Alternancia de vistas con `only-mobile` y `only-desktop`.
+- Breakpoint principal en `720px`.
+- Tablas semanticas con `caption`, `thead`, `tbody` y `th scope`.
+- Focus visible para teclado con `:focus-visible`.
+- Formularios con `label for`, `fieldset` y `legend`.
 
 ## Alcance actual del MVP
-- [x] Navegacion entre pantallas con rutas relativas correctas.
+- [x] Navegacion y rutas relativas funcionales.
 - [x] UI responsive en dashboard, tratamientos, formulario e historial.
-- [x] Datos mock para demo visual.
-- [ ] Persistencia de datos.
-- [ ] Logica de negocio (guardar, editar, pausar, marcar tomado).
-- [ ] Integracion con API/backend.
+- [x] Placeholders para funcionalidades fuera de alcance (DB/API/JS).
+- [ ] Persistencia real de datos.
+- [ ] Integracion API real.
+- [ ] Logica dinamica en cliente (sin JS en este modulo).
 
 ## Como ejecutar
 ### Opcion 1
-Abrir `index.html` directamente en el navegador.
+Abrir `index.html` en navegador.
 
 ### Opcion 2 (recomendada)
 Usar Live Server en VS Code sobre `index.html`.
 
-## Proximos pasos recomendados
-1. Conectar formulario y tablas a estado real con JavaScript.
-2. Persistir datos (localStorage o backend).
-3. Implementar acciones reales de tratamientos e historial.
-4. Anadir pruebas manuales guiadas por casos de uso.
+## Proximos pasos
+1. Implementar logica JS para estados y recordatorios.
+2. Conectar almacenamiento persistente (backend o localStorage segun alcance).
+3. Integrar API de medicamentos para autocompletado y validaciones.
+4. Añadir pruebas manuales guiadas por flujos de usuario.
