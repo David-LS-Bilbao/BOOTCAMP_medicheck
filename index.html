@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8>"
 
   <!-- Hace que el diseno responsive funcione correctamente en movil -->
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Titulo de la pestana del navegador -->
@@ -43,12 +44,27 @@
       </p>
     </header>
 
-    <!-- Acciones rapidas del dashboard 
-    <section class="actions" aria-label="Acciones rapidas">
-      <a class="btn btn-link" href="./pages/tratamiento-form.html">+ Anadir tratamiento</a>
-      <a class="btn btn-link" href="./pages/history.html">Ver historial</a>
+    <!--
+      Widget tipo Apple:
+      - Muestra fecha/hora de ejemplo para la demo.
+      - El bloque principal va a calendar/alarma (requiere DB).
+      - El bloque de clima va a consumo de API.
+    -->
+    <section class="calendar-widget" aria-label="Widget de fecha, hora y clima">
+      <a class="calendar-widget__main" href="./pages/needDBs.html" aria-label="Anadir al calendario y configurar alarmas (requiere base de datos)">
+        <p class="calendar-widget__label">Hoy</p>
+        <p class="calendar-widget__time">09:30</p>
+        <p class="calendar-widget__date">
+          <time datetime="2026-03-05">Jueves, 5 de marzo de 2026</time>
+        </p>
+        <p class="calendar-widget__hint">Pulsa para anadir al calendario de alarmas</p>
+      </a>
+
+      <a class="calendar-widget__weather" href="./pages/needAPI.html" aria-label="Consultar clima del dia (requiere API)">
+        <span class="calendar-widget__weather-icon" aria-hidden="true">&#9729;</span>
+        <span>Bilbao 17 C · Nublado</span>
+      </a>
     </section>
--->
     <!--
       VISTA MOVIL:
       Esta seccion se ve por defecto (mobile-first) y muestra una tabla corta de "hoy".

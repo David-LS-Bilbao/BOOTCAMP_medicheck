@@ -176,6 +176,90 @@ a {
 }
 
 /* =====================================================
+   WIDGET DASHBOARD (FECHA/HORA + CLIMA)
+===================================================== */
+
+/* contenedor del widget de arriba del dashboard */
+.calendar-widget {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+
+/* bloque principal del widget: fecha/hora y acceso a calendario */
+.calendar-widget__main {
+  display: block;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid #2a3f68;
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 55%, #1b365d 100%);
+  color: #eff6ff;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+}
+
+.calendar-widget__label {
+  margin: 0;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #bfdbfe;
+}
+
+.calendar-widget__time {
+  margin: 4px 0 2px;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.calendar-widget__date {
+  margin: 0 0 8px;
+  color: #dbeafe;
+  font-weight: 600;
+}
+
+.calendar-widget__hint {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.92rem;
+}
+
+/* chip de clima que deriva a needAPI */
+.calendar-widget__weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: var(--line);
+  background: #eef4ff;
+  color: #123474;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.calendar-widget__weather-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.calendar-widget__main:hover,
+.calendar-widget__main:active,
+.calendar-widget__main:focus {
+  filter: brightness(1.04);
+}
+
+.calendar-widget__weather:hover,
+.calendar-widget__weather:active,
+.calendar-widget__weather:focus {
+  background: #dde9ff;
+  border-color: #9db6ee;
+}
+
+/* =====================================================
    VISIBILIDAD RESPONSIVE (MOBILE-FIRST)
 ===================================================== */
 
@@ -523,6 +607,28 @@ a {
   color: #123474;
 }
 
+/* boton circular (icono campana en tarjetas de tratamientos) */
+.btn-icon {
+  width: var(--tap);
+  min-width: var(--tap);
+  padding: 0;
+  border-radius: 999px;
+}
+
+.bell-action {
+  background: #eef4ff;
+  border-color: #b8cbf8;
+  color: #123474;
+  font-size: 1.05rem;
+}
+
+.bell-action:hover,
+.bell-action:active,
+.bell-action:focus {
+  background: #dde9ff;
+  border-color: #8daeea;
+}
+
 .btn-link:active,
 .btn-link:focus {
   background: #d6e4ff;
@@ -862,6 +968,11 @@ button.badge:focus {
   - mejoramos composicion de header, cards y formularios
 */
 @media (min-width: 720px) {
+  .calendar-widget {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
   .only-desktop {
     display: block;
   }
